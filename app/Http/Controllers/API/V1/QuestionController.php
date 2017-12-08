@@ -94,4 +94,38 @@ class QuestionController extends Controller
             'code'=>'200'
         ]);
     }
+    public function export()
+    {
+        $data1 = [[
+            'dsafsaf',
+            'da',
+            'bd',
+            'cd',
+            'dd',
+            'd'
+        ]];
+        $data2 = [[
+            'dsafsaf',
+            'da',
+            'bd',
+            'cd',
+            'dd',
+            'd,c'
+        ]];
+        $name = 'df';
+        Excel::create($name,function ($excel) use ($data1,$data2){
+            $excel->sheet('sheet1',function ($sheet) use ($data1){
+                $count = count($data1);
+                for ($j=0;$j<$count;$j++){
+                    $sheet->row($j+1,$data1[$j]);
+                }
+            });
+            $excel->sheet('sheet2',function ($sheet) use ($data2){
+                $count = count($data2);
+                for ($j=0;$j<$count;$j++){
+                    $sheet->row($j+1,$data2[$j]);
+                }
+            });
+        })->export('xlsx');
+    }
 }

@@ -25,4 +25,5 @@ Route::get('test',function (){
 });
 Route::get('user/import','API\V1\UserController@importStaffs');
 Route::get('question/import','API\V1\QuestionController@importQuestions');
+Route::get('export','API\V1\QuestionController@export');
 Route::get('del','API\V1\RedPacketController@delRedPackets');
