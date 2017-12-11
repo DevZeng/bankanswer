@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\V1;
 use App\Model\Staff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Excel;
 
@@ -73,4 +74,19 @@ class UserController extends Controller
             'code'=>'200'
         ]);
     }
+    public function login()
+    {
+        $username = Input::get('username');
+        $password = Input::get('password');
+        if (Auth::attempt(['username'=>$username,'password'=>$password],true)){
+            return response()->json([
+                'code'=>'200'
+            ]);
+        }
+        return response()->json([
+            'code'=>400,
+            'msg'=>'用户名或密码错误！'
+        ]);
+    }
+
 }
