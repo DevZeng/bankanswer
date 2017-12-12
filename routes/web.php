@@ -33,7 +33,7 @@ Route::group(['middleware'=>'cross'],function (){
     Route::post('warehouse','API\V1\WarehouseController@addWarehouse');
     Route::get('warehouses','API\V1\WarehouseController@getWarehouses');
     Route::get('del/warehouse/{id}','API\V1\WarehouseController@delWarehouse');
-    Route::pot('exam','API\V1\ExamController@delExam');
+    Route::post('exam','API\V1\ExamController@delExam');
     Route::get('exams','API\V1\ExamController@getExams');
     Route::get('del/exam/{id}','API\V1\ExamController@delExam');
     Route::post('question/import','API\V1\QuestionController@importQuestions');
