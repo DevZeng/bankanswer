@@ -18,7 +18,7 @@ class UploadController extends Controller
             ]);
         }
         $file = $request->file('file');
-        $type = $request->get('type',0);
+//        $type = $request->get('type',0);
         $name = $file->getClientOriginalName();
         $name = explode('.',$name);
         if (count($name)!=2){

@@ -78,15 +78,18 @@ class UserController extends Controller
     {
         $username = Input::get('username');
         $password = Input::get('password');
-        if (Auth::attempt(['username'=>$username,'password'=>$password],true)){
-            return response()->json([
-                'code'=>'200'
-            ]);
+        if (Auth::attempt(['username' => $username, 'password' => $password], true)) {
+            return redirect('index');
         }
-        return response()->json([
-            'code'=>400,
-            'msg'=>'用户名或密码错误！'
-        ]);
+        return redirect()->back()->with('status','用户名或密码错误！');
+    }
+    public function loginPage()
+    {
+        return view('user.login');
+    }
+    public function index()
+    {
+        return view('index');
     }
 
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>题库管理</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="../../assets/css/function.css">
+</head>
+
+<body>
+<div class="sub-container">
+    <!-- 公有导航，作模版 -->
+    <div class="sub-header">
+        <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+        <span>题库管理</span>
+    </div>
+    <!-- /公有导航 -->
+
+    <!-- 职员操作 -->
+    <ul class="staff-operation">
+        <li>
+            <a href="questionsAdd.html">
+                <img class="staff-icon" src="../../assets/images/add.png" alt="添加">
+                <span>添加</span>
+            </a>
+        </li>
+        <li id="questions-delete">
+            <img class="staff-icon" src="../../assets/images/delete.png" alt="删除">
+            <span>删除</span>
+        </li>
+    </ul>
+    <!-- /职员操作 -->
+
+    <!-- 题库列表 -->
+    <table class="table-list">
+        <thead>
+        <tr class="table-row">
+            <th>#</th>
+            <th>序号</th>
+            <th>名称</th>
+            <th>更新时间</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <!-- 循环列表 -->
+        <tr>
+            <td>
+                <input class="questions-checkbox" data-id="1" type="checkbox">
+            </td>
+            <td>1</td>
+            <td>题库一</td>
+            <td>2017-12-11</td>
+            <td>2017-10-21</td>
+            <td>
+                <a class="btn info" href="questionsCheck.html?id=1">查看</a>
+                <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
+            </td>
+        </tr>
+        <!-- /循环列表 -->
+        <tr>
+            <td>
+                <input class="questions-checkbox" data-id="2" type="checkbox">
+            </td>
+            <td>2</td>
+            <td>题库一题库一题库一题库一题库一</td>
+            <td>2017-12-11</td>
+            <td>2017-10-21</td>
+            <td>
+                <a class="btn info" href="questionsCheck.html?id=2">查看</a>
+                <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- /题库列表 -->
+</div>
+<!-- 通用引入 -->
+<script src="../../assets/js/jquery1.9.1.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<!-- /通用引入 -->
+</body>
+
+</html>

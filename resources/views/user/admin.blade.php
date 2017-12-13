@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>系统管理</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="../../assets/css/function.css">
+</head>
+
+<body>
+<div class="sub-container">
+
+    <!-- 公有导航，作模版 -->
+    <div class="sub-header">
+        <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+        <span>系统管理</span>
+    </div>
+    <!-- /公有导航 -->
+
+    <!-- 结果列表 -->
+    <table class="table-list">
+        <thead>
+        <tr class="table-row">
+            <th>序号</th>
+            <th>管理员名称</th>
+            <th>真名</th>
+            <th>添加时间</th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <!-- 循环列表 -->
+        <tr>
+            <td>1</td>
+            <td>1007</td>
+            <td>张飞</td>
+            <td>2017-12-01</td>
+        </tr>
+        <!-- /循环列表 -->
+        <tr>
+            <td>2</td>
+            <td>2003</td>
+            <td>刘德华</td>
+            <td>2017-12-01</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- /结果列表 -->
+</div>
+</body>
+
+</html>

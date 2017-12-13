@@ -27,7 +27,7 @@ class WarehouseController extends Controller
             ]);
         }
     }
-    public function getWarehouses()
+    public function listWarehouses()
     {
         $page = Input::get('page',1);
         $limit = Input::get('limit',10);
@@ -51,5 +51,15 @@ class WarehouseController extends Controller
                 'code'=>'200'
             ]);
         }
+    }
+    public function getTrain()
+    {
+        $page = Input::get('page',1);
+        $limit = Input::get('limit',10);
+        $trains = Warehouse::where('type','=','2')->limit($limit)->offset(($page-1)*$limit)->get();
+        return response()->json([
+            'code'=>'200',
+            'data'=>$trains
+        ]);
     }
 }

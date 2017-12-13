@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="webkit">
+    <title>职员列表</title>
+    <link rel="stylesheet" href="../../assets/css/common.css">
+    <link rel="stylesheet" href="../../assets/css/function.css">
+</head>
+
+<body>
+<div class="sub-container">
+    <!-- 公有导航，作模版 -->
+    <div class="sub-header">
+        <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+        <span>职员列表</span>
+    </div>
+    <!-- /公有导航 -->
+
+    <!-- 职员操作 -->
+    <ul class="staff-operation">
+        <li>
+            <a href="staffAdd.html">
+                <img class="staff-icon" src="../../assets/images/add.png" alt="添加">
+                <span>添加</span>
+            </a>
+        </li>
+        <li id="staff-edit">
+            <img class="staff-icon" src="../../assets/images/edit.png" alt="编辑">
+            <span>编辑</span>
+        </li>
+        <li id="staff-delete">
+            <img class="staff-icon" src="../../assets/images/delete.png" alt="删除">
+            <span>删除</span>
+        </li>
+        <li id="staff-delete">
+            <label style="cursor: pointer;">
+                <img class="staff-icon" src="../../assets/images/upload.png" alt="上传">
+                <span>上传职员列表</span>
+                <input type="file" id="staff-upload" hidden>
+            </label>
+        </li>
+    </ul>
+    <!-- /职员操作 -->
+
+    <!-- 职员列表 -->
+    <table class="table-list">
+        <thead>
+        <tr class="table-row">
+            <th>#</th>
+            <th>序号</th>
+            <th>真名</th>
+            <th>登录工号</th>
+            <th>性别</th>
+            <th>电话</th>
+            <th>支付宝帐号</th>
+            <th>添加时间</th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <!-- 循环列表 -->
+        <tr>
+            <td>
+                <input class="staff-checkbox" data-id="1" type="checkbox">
+            </td>
+            <td>1</td>
+            <td>周润发</td>
+            <td>SHINING</td>
+            <td>男</td>
+            <td>18451263415</td>
+            <td>xxx@126.com</td>
+            <td>2017-12-01</td>
+        </tr>
+        <!-- /循环列表 -->
+        <tr>
+            <td>
+                <input class="staff-checkbox" data-id="2" type="checkbox">
+            </td>
+            <td>2</td>
+            <td>周润发</td>
+            <td>SHINING</td>
+            <td>男</td>
+            <td>18451263415</td>
+            <td>xxx@126.com</td>
+            <td>2017-12-01</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- /职员列表 -->
+</div>
+
+
+<!-- 通用引入 -->
+<script src="../../assets/js/jquery1.9.1.min.js"></script>
+<script src="../../assets/js/common.js"></script>
+<!-- /通用引入 -->
+</body>
+
+</html>
