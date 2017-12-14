@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
     <title>银行后台管理系统</title>
-    <link rel="stylesheet" href="../../assets/css/common.css">
-    <link rel="stylesheet" href="../../assets/css/function.css">
+    <link rel="stylesheet" href="{{url('css/common.css')}}">
+    <link rel="stylesheet" href="{{url('css/function.css')}}"> 
 </head>
 
 <body>
 <div class="login-wrap">
-    <div class="login-part" style="background: url('../../assets/images/login.png') no-repeat;">
-        <div class="login-header" style="background: url('../../assets/images/login_img.png') no-repeat;"></div>
+    <div class="login-part" style="background: url('{{url('images/login.png')}}') no-repeat;">
+        <div class="login-header" style="background: url('{{url('images/login_img.png')}}')  no-repeat;"></div>
         <div class="login-content">
             <form method="post">
                 {{csrf_field()}}

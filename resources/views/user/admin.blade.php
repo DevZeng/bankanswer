@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
     <title>系统管理</title>
-    <link rel="stylesheet" href="../../assets/css/common.css">
-    <link rel="stylesheet" href="../../assets/css/function.css">
+    <link rel="stylesheet" href="{{url('css/common.css')}}">
+    <link rel="stylesheet" href="{{url('css/function.css')}}"> 
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 
     <!-- 公有导航，作模版 -->
     <div class="sub-header">
-        <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+        <img class="sub-header-img" src="{{url('images/sub-header.png')}}" alt="导航">
         <span>系统管理</span>
     </div>
     <!-- /公有导航 -->
@@ -50,6 +50,18 @@
     </table>
     <!-- /结果列表 -->
 </div>
+@if (session('status'))
+{{--    {{dd(session('status'))}}--}}
+    <script type="text/javascript">
+        console.log({{session('status')}})
+        alert("{{session('status')}}")
+    </script>
+
+@endif
+<!-- 通用引入 -->
+<script src="{{url('js/jquery1.9.1.min.js')}}"></script>
+<script src="{{url('js/common.js')}}"></script>
+<!-- /通用引入 -->
 </body>
 
 </html>

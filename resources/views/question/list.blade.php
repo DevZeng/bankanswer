@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
     <title>题库管理</title>
-    <link rel="stylesheet" href="../../assets/css/common.css">
-    <link rel="stylesheet" href="../../assets/css/function.css">
+    <link rel="stylesheet" href="{{url('css/common.css')}}">
+    <link rel="stylesheet" href="{{url('css/function.css')}}"> 
 </head>
 
 <body>
 <div class="sub-container">
     <!-- 公有导航，作模版 -->
     <div class="sub-header">
-        <img class="sub-header-img" src="../../assets/images/sub-header.png" alt="导航">
+        <img class="sub-header-img" src="{{url('images/sub-header.png')}}" alt="导航">
         <span>题库管理</span>
     </div>
     <!-- /公有导航 -->
@@ -24,12 +24,12 @@
     <ul class="staff-operation">
         <li>
             <a href="questionsAdd.html">
-                <img class="staff-icon" src="../../assets/images/add.png" alt="添加">
+                <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>
         </li>
         <li id="questions-delete">
-            <img class="staff-icon" src="../../assets/images/delete.png" alt="删除">
+            <img class="staff-icon" src="{{url('images/delete.png')}}" alt="删除">
             <span>删除</span>
         </li>
     </ul>
@@ -80,9 +80,17 @@
     </table>
     <!-- /题库列表 -->
 </div>
+@if (session('status'))
+{{--    {{dd(session('status'))}}--}}
+    <script type="text/javascript">
+        console.log({{session('status')}})
+        alert("{{session('status')}}")
+    </script>
+
+@endif
 <!-- 通用引入 -->
-<script src="../../assets/js/jquery1.9.1.min.js"></script>
-<script src="../../assets/js/common.js"></script>
+<script src="{{url('js/jquery1.9.1.min.js')}}"></script>
+<script src="{{url('js/common.js')}}"></script>
 <!-- /通用引入 -->
 </body>
 
