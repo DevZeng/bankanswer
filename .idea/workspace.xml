@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="80eb9c47-079f-44e6-9c74-7dd9d33230f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/V1/UserController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/V1/UserController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,8 +66,8 @@
       <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/V1/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+            <state relative-caret-position="421">
+              <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
               <folding>
                 <element signature="e#47#69#0#PHP" expanded="true" />
               </folding>
@@ -216,7 +215,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="288" />
     <option name="y" value="105" />
     <option name="width" value="2590" />
@@ -364,15 +363,15 @@
       <workItem from="1513246974009" duration="2701000" />
       <workItem from="1513303744639" duration="127000" />
       <workItem from="1513307523384" duration="1936000" />
-      <workItem from="1513422472001" duration="5070000" />
+      <workItem from="1513422472001" duration="5163000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21749000" />
+    <option name="totallyTimeSpent" value="21842000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="-13" width="2586" height="1546" extended-state="6" />
+    <frame x="-13" y="-13" width="2586" height="1546" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2687171" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -839,8 +838,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/V1/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+        <state relative-caret-position="421">
+          <caret line="53" column="31" lean-forward="false" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
           <folding>
             <element signature="e#47#69#0#PHP" expanded="true" />
           </folding>

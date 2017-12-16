@@ -78,7 +78,7 @@
         @endforeach
         <!-- /循环列表 -->
         </tbody>
-        {!! $staff->links() !!}
+        {!! $staffs->links() !!}
     </table>
     <!-- /职员列表 -->
 </div>
