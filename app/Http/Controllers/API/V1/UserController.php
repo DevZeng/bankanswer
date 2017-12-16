@@ -51,9 +51,7 @@ class UserController extends Controller
     }
     public function getStaffs()
     {
-        $page = Input::get('page',1);
-        $limit = Input::get('limit',10);
-        $staffs = Staff::limit($limit)->offset(($page-1)*$limit)->get();
+        $staffs = Staff::paginate(10);
         return view('staff.list',['staffs'=>$staffs]);
     }
     public function importStaffs()
