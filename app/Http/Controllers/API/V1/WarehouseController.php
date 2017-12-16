@@ -47,7 +47,7 @@ class WarehouseController extends Controller
             ]);
         }
     }
-    public function getTrain()
+    public function getTrains()
     {
         $page = Input::get('page',1);
         $limit = Input::get('limit',10);

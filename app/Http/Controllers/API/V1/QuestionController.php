@@ -128,4 +128,8 @@ class QuestionController extends Controller
             });
         })->export('xlsx');
     }
+    public function getQuestions()
+    {
+
+    }
 }
