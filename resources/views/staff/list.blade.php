@@ -61,33 +61,24 @@
         </tr>
         </thead>
         <tbody class="table-body">
+        @foreach($staffs as $staff)
         <!-- 循环列表 -->
         <tr>
             <td>
-                <input class="staff-checkbox" data-id="1" type="checkbox">
+                <input class="staff-checkbox" data-id="{{$staff->id}}" type="checkbox">
             </td>
-            <td>1</td>
-            <td>周润发</td>
-            <td>SHINING</td>
-            <td>男</td>
-            <td>18451263415</td>
-            <td>xxx@126.com</td>
-            <td>2017-12-01</td>
+            <td>{{$staff->id}}</td>
+            <td>{{$staff->name}}</td>
+            <td>{{$staff->username}}</td>
+            <td>{{($staff->sex)==1?'男':'女'}}</td>
+            <td>{{$staff->mobile}}</td>
+            <td>{{$staff->account}}</td>
+            <td>{{$staff->created_at}}</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-            <td>
-                <input class="staff-checkbox" data-id="2" type="checkbox">
-            </td>
-            <td>2</td>
-            <td>周润发</td>
-            <td>SHINING</td>
-            <td>男</td>
-            <td>18451263415</td>
-            <td>xxx@126.com</td>
-            <td>2017-12-01</td>
-        </tr>
         </tbody>
+        {!! $staff->links() !!}
     </table>
     <!-- /职员列表 -->
 </div>

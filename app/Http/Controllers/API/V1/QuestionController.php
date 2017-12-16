@@ -63,7 +63,7 @@ class QuestionController extends Controller
                 $question->option_b = $origin[2];
                 $question->option_c = $origin[3];
                 $question->option_d = $origin[4];
-                $question->answer = $origin[5];
+                $question->answer = strtolower($origin[5]);
                 $question->type = 1;
                 $question->warehouse_id = $warehouse_id;
                 $question->save();
@@ -130,6 +130,16 @@ class QuestionController extends Controller
     }
     public function getQuestions()
     {
-
+        $warehouse_id = Input::get('warehouse_id');
+        $limit = Input::get('limit');
+        if ($limit){
+            $question = Question::where('warehouse_id','=',$warehouse_id)->limit($limit)->orderByRaw('RAND()')->get();
+        }else{
+            $question = Question::where('warehouse_id','=',$warehouse_id)->get();
+        }
+        return response()->json([
+            'code'=>'200',
+            'data'=>$question
+        ]);
     }
 }

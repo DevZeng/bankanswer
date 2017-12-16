@@ -19,8 +19,24 @@ class UserController extends Controller
         $id = Input::get('id');
         if ($id){
             $staff = Staff::find($id);
+            $username = Input::get('username');
+            $count = Staff::where('username','=',$username)->where('id','!=',$id)->count();
+            if ($count!=0){
+                return response()->json([
+                    'code'=>'400',
+                    'msg'=>'该工号以被使用！'
+                ]);
+            }
         }else{
             $staff = new Staff();
+            $username = Input::get('username');
+            $count = Staff::where('username','=',$username)->count();
+            if ($count!=0){
+                return response()->json([
+                    'code'=>'400',
+                    'msg'=>'该工号以被使用！'
+                ]);
+            }
         }
         $staff->username = Input::get('username');
         $staff->password = bcrypt(Input::get('password'));
@@ -38,10 +54,7 @@ class UserController extends Controller
         $page = Input::get('page',1);
         $limit = Input::get('limit',10);
         $staffs = Staff::limit($limit)->offset(($page-1)*$limit)->get();
-        return response()->json([
-            'code'=>'200',
-            'data'=>$staffs
-        ]);
+        return view('staff.list',['staffs'=>$staffs]);
     }
     public function importStaffs()
     {
