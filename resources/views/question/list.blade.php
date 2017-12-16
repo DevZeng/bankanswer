@@ -48,35 +48,26 @@
         </tr>
         </thead>
         <tbody class="table-body">
+        @foreach($warehouses as $warehouse)
         <!-- 循环列表 -->
         <tr>
             <td>
-                <input class="questions-checkbox" data-id="1" type="checkbox">
+                <input class="questions-checkbox" data-id="{{$warehouse->id}}" type="checkbox">
             </td>
-            <td>1</td>
-            <td>题库一</td>
-            <td>2017-12-11</td>
-            <td>2017-10-21</td>
+            <td>{{$warehouse->id}}</td>
+            <td>{{$warehouse->name}}</td>
+            <td>{{$warehouse->type==1?"考试题库":'练习题库'}}</td>
+            <td>{{$warehouse->updated_at}}</td>
+            <td>{{$warehouse->created_at}}</td>
             <td>
                 <a class="btn info" href="questionsCheck.html?id=1">查看</a>
                 <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
             </td>
         </tr>
         <!-- /循环列表 -->
-        <tr>
-            <td>
-                <input class="questions-checkbox" data-id="2" type="checkbox">
-            </td>
-            <td>2</td>
-            <td>题库一题库一题库一题库一题库一</td>
-            <td>2017-12-11</td>
-            <td>2017-10-21</td>
-            <td>
-                <a class="btn info" href="questionsCheck.html?id=2">查看</a>
-                <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
-            </td>
-        </tr>
+        @endforeach
         </tbody>
+        {!! $warehouses->links() !!}
     </table>
     <!-- /题库列表 -->
 </div>

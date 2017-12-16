@@ -147,4 +147,12 @@ class UserController extends Controller
             'data'=>$question
         ]);
     }
+    public function staffList()
+    {
+        $list = Staff::orderBy('score','DESC')->get();
+        return response()->json([
+            'code'=>'200',
+            'data'=>$list
+        ]);
+    }
 }

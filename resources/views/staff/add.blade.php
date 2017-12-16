@@ -23,34 +23,34 @@
 
     <!-- 员工添加表单 -->
     <div class="staff-add-form">
-        <form id="staff-submit">
+        <form id="staff-submit" method="post">
             <label class="label-control">
                 <span class="label-text">登录工号：</span>
-                <input class="input-control" required type="text" name="staff_number" value="{{$staff->name}}" placeholder="登录工号">
+                <input class="input-control" required type="text" name="username" value="{{$staff->name}}" placeholder="登录工号">
             </label>
             <label class="label-control">
                 <span class="label-text">密码：</span>
-                <input class="input-control" required type="text" name="staff_password" placeholder="默认密码123456">
+                <input class="input-control" required type="text" name="password" placeholder="默认密码123456">
             </label>
             <label class="label-control">
                 <span class="label-text">真名：</span>
-                <input class="input-control" required type="text" name="staff_name" placeholder="真名">
+                <input class="input-control" required type="text" name="name" placeholder="真名">
             </label>
             <label class="label-control">
                 <span class="label-text">性别：</span>
                 <label class="radio-label">
-                    <input type="radio" required name="staff_sex" value="男">男
+                    <input type="radio" required name="sex" value="1">男
                 </label>
                 <label class="radio-label">
-                    <input type="radio" required name="staff_sex" value="女">女
+                    <input type="radio" required name="sex" value="2">女
                 </label>
             </label>
             <label class="label-control">
                 <span class="label-text">联系电话：</span>
-                <input class="input-control" required type="text" name="staff_phone" placeholder="联系电话">
+                <input class="input-control" required type="text" name="mobile" placeholder="联系电话">
             </label>
             <div class="staff-add-btns">
-                <input type="submit" class="btn success" value="提交"></input>
+                <input type="submit"  value="提交"></input>
                 <input type="reset" class="btn info"></input>
             </div>
         </form>
