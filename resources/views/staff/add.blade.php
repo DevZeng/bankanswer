@@ -26,7 +26,7 @@
         <form id="staff-submit">
             <label class="label-control">
                 <span class="label-text">登录工号：</span>
-                <input class="input-control" required type="text" name="staff_number" placeholder="登录工号">
+                <input class="input-control" required type="text" name="staff_number" value="{{$staff->name}}" placeholder="登录工号">
             </label>
             <label class="label-control">
                 <span class="label-text">密码：</span>

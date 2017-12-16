@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API\V1;
 
+use App\Model\Mistake;
+use App\Model\Question;
 use App\Model\Staff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -91,5 +93,47 @@ class UserController extends Controller
     {
         return view('index');
     }
-
+    public function addStaffPage()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $staff = Staff::find($id);
+        }else{
+            $staff = new Staff();
+        }
+        return view('staff.add',['staff'=>$staff]);
+    }
+    public function listStaffPage()
+    {
+        $staffs = Staff::paginate(10);
+        return view('staff.list',['staffs'=>$staffs]);
+    }
+    public function staffLogin()
+    {
+        $username = Input::get('username');
+        $password = Input::get('password');
+        $staff = Staff::where('username','=',$username)->first();
+        if (!empty($staff)&&$staff->password = md5($password)){
+            $token = createNoncestr();
+            setUserToken($token,$staff->id);
+            return response()->json([
+                'code'=>'200',
+                'data'=>$token
+            ]);
+        }
+        return response()->json([
+            'code'=>'400',
+            'msg'=>'用户名或密码错误！'
+        ]);
+    }
+    public function getMistakes()
+    {
+        $uid = getUserToken(Input::get('token'));
+        $mistakes = Mistake::where('user_id','=',$uid)->pluck('record')->first();
+        $question = Question::whereIn('id',explode(',',$mistakes))->get();
+        return response()->json([
+            'code'=>'200',
+            'data'=>$question
+        ]);
+    }
 }

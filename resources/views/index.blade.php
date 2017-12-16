@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="renderer" content="webkit">
     <title>银行后台管理系统</title>
-    <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/function.css">
+    <link rel="stylesheet" href="{{url('css/common.css')}}">
+    <link rel="stylesheet" href="{{url('css/function.css')}}">
 </head>
 
 <body>
@@ -29,45 +29,45 @@
         <!-- 左侧导航 -->
         <ul class="navbar-list">
             <li class="navbar-title">
-                <img class="navbar-title-img" src="../assets/images/nav-title.png" alt="功能导航">
+                <img class="navbar-title-img" src="{{url('images/nav-title.png')}}" alt="功能导航">
                 <span>功能导航</span>
             </li>
             {{--<li class="navbar-item">--}}
                 {{--<div class="navbar-item-wrap">--}}
-                    {{--<img class="navbar-title-img" src="../assets/images/nav-icon.png" alt="导航">--}}
+                    {{--<img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">--}}
                     {{--<span>日常办公</span>--}}
                 {{--</div>--}}
             {{--</li>--}}
             <li class="navbar-item">
                 <div class="navbar-item-wrap">
-                    <img class="navbar-title-img" src="../assets/images/nav-icon.png" alt="导航">
+                    <img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">
                     <span>职员管理</span>
-                    <img class="navbar-item-arrow" src="../assets/images/arrow-left.png" alt="展开">
-                    <img class="navbar-item-arrow down" src="../assets/images/arrow-down.png" alt="展开">
+                    <img class="navbar-item-arrow" src="{{url('images/arrow-left.png')}}" alt="展开">
+                    <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
-                    <li class="navbar-sub-item" data-route="./staff/staffAdd.html">添加职员</li>
-                    <li class="navbar-sub-item" data-route="./staff/staffList.html">职员列表</li>
+                    <li class="navbar-sub-item" data-route="{{url('add/staff')}}">添加职员</li>
+                    <li class="navbar-sub-item" data-route="{{url('list/staff')}}">职员列表</li>
                     <li class="navbar-sub-item" data-route="./staff/staffCash.html">兑现列表</li>
                 </ul>
             </li>
             <li class="navbar-item">
                 <div class="navbar-item-wrap">
-                    <img class="navbar-title-img" src="../assets/images/nav-icon.png" alt="导航">
+                    <img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">
                     <span>题库管理</span>
-                    <img class="navbar-item-arrow" src="../assets/images/arrow-left.png" alt="展开">
-                    <img class="navbar-item-arrow down" src="../assets/images/arrow-down.png" alt="展开">
+                    <img class="navbar-item-arrow" src="{{url('images/arrow-left.png')}}" alt="展开">
+                    <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
-                    <li class="navbar-sub-item" data-route="./questions/questions.html">题库管理</li>
+                    <li class="navbar-sub-item" data-route="{{url('list/warehouse')}}">题库管理</li>
                 </ul>
             </li>
             <li class="navbar-item">
                 <div class="navbar-item-wrap">
-                    <img class="navbar-title-img" src="../assets/images/nav-icon.png" alt="导航">
+                    <img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">
                     <span>考试管理</span>
-                    <img class="navbar-item-arrow" src="../assets/images/arrow-left.png" alt="展开">
-                    <img class="navbar-item-arrow down" src="../assets/images/arrow-down.png" alt="展开">
+                    <img class="navbar-item-arrow" src="{{url('images/arrow-left.png')}}" alt="展开">
+                    <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
                     <li class="navbar-sub-item" data-route="./examination/examinationConfig.html">考试设置</li>
@@ -76,10 +76,10 @@
             </li>
             <li class="navbar-item">
                 <div class="navbar-item-wrap">
-                    <img class="navbar-title-img" src="../assets/images/nav-icon.png" alt="导航">
+                    <img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">
                     <span>系统管理</span>
-                    <img class="navbar-item-arrow" src="../assets/images/arrow-left.png" alt="展开">
-                    <img class="navbar-item-arrow down" src="../assets/images/arrow-down.png" alt="展开">
+                    <img class="navbar-item-arrow" src="{{url('images/arrow-left.png')}}" alt="展开">
+                    <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
                     <li class="navbar-sub-item" data-route="./admin/admin.html">管理员列表</li>
@@ -90,7 +90,7 @@
 
         <!-- 内容 -->
         <div class="iframe-content">
-            <iframe id="iframe" width="100%" height="100%" src="./examination/examinationConfig.html" frameborder="0"></iframe>
+            <iframe id="iframe" width="100%" height="100%" src="" frameborder="0"></iframe>
         </div>
         <!-- /内容 -->
     </div>
@@ -99,8 +99,8 @@
 </div>
 
 <!-- 通用引入 -->
-<script src="../assets/js/jquery1.9.1.min.js"></script>
-<script src="../assets/js/common.js"></script>
+<script src="{{url('js/jquery1.9.1.min.js')}}"></script>
+<script src="{{url('js/common.js')}}"></script>
 <!-- /通用引入 -->
 </body>
 

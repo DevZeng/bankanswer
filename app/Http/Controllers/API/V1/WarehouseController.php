@@ -29,13 +29,8 @@ class WarehouseController extends Controller
     }
     public function listWarehouses()
     {
-        $page = Input::get('page',1);
-        $limit = Input::get('limit',10);
-        $warehouses = Warehouse::limit($limit)->offset(($page-1)*$limit)->get();
-        return response()->json([
-            'code'=>'200',
-            'data'=>$warehouses
-        ]);
+        $warehouses = Warehouse::paginate(10);
+        return view('question.list',['warehouses'=>$warehouses]);
     }
     public function delWarehouse($id)
     {
