@@ -22,20 +22,14 @@ class UserController extends Controller
             $username = Input::get('username');
             $count = Staff::where('username','=',$username)->where('id','!=',$id)->count();
             if ($count!=0){
-                return response()->json([
-                    'code'=>'400',
-                    'msg'=>'该工号以被使用！'
-                ]);
+                return redirect()->back()->with('status','该工号已被使用！');
             }
         }else{
             $staff = new Staff();
             $username = Input::get('username');
             $count = Staff::where('username','=',$username)->count();
             if ($count!=0){
-                return response()->json([
-                    'code'=>'400',
-                    'msg'=>'该工号以被使用！'
-                ]);
+                return redirect()->back()->with('status','该工号已被使用！');
             }
         }
         $staff->username = Input::get('username');
@@ -44,9 +38,7 @@ class UserController extends Controller
         $staff->sex = Input::get('sex');
         $staff->mobile = Input::get('mobile');
         if ($staff->save()){
-            return response()->json([
-                'code'=>'200'
-            ]);
+            return redirect()->back()->with('status','添加成功！');
         }
     }
     public function getStaffs()
