@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Model\Mistake;
+use App\Model\Order;
 use App\Model\Question;
 use App\Model\Staff;
 use Illuminate\Http\Request;
@@ -150,5 +151,10 @@ class UserController extends Controller
             'code'=>'200',
             'data'=>$list
         ]);
+    }
+    public function listOrders()
+    {
+        $orders = Order::paginate(10);
+        return view('staff.cash',['orders'=>$orders]);
     }
 }

@@ -48,7 +48,7 @@
                 <ul class="navbar-sub-list">
                     <li class="navbar-sub-item" data-route="{{url('add/staff')}}">添加职员</li>
                     <li class="navbar-sub-item" data-route="{{url('list/staff')}}">职员列表</li>
-                    <li class="navbar-sub-item" data-route="./staff/staffCash.html">兑现列表</li>
+                    <li class="navbar-sub-item" data-route="{{url('orders')}}">兑现列表</li>
                 </ul>
             </li>
             <li class="navbar-item">

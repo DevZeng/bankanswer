@@ -28,6 +28,7 @@ Route::get('index','API\V1\UserController@index');
 Route::get('add/staff','API\V1\UserController@addStaffPage');
 Route::post('add/staff ','API\V1\UserController@addStaff');
 Route::get('list/staff','API\V1\UserController@listStaffPage');
+Route::get('orders','API\V1\UserController@listOrders');
 Route::get('list/warehouse','API\V1\WarehouseController@listWarehouses');
 Route::any('upload','API\V1\UploadController@upload');
 Route::post('user/import','API\V1\UserController@importStaffs');

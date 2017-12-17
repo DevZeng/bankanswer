@@ -36,24 +36,19 @@
         </thead>
         <tbody class="table-body">
         <!-- 循环列表 -->
+        @foreach($orders as $order)
         <tr>
-            <td>1</td>
-            <td>周润发</td>
-            <td>10215</td>
-            <td>0.5元</td>
-            <td>2017-12-11</td>
-            <td>成功</td>
+            <td>{{$order->id}}</td>
+            <td>{{$order->staff()->name}}</td>
+            <td>{{$order->staff()->username}}</td>
+            <td>{{$order->cash}}元</td>
+            <td>{{$order->created_at}}</td>
+            <td>{{($order->state==1)?'成功':'失败'}}</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-            <td>1</td>
-            <td>周润发</td>
-            <td>10215</td>
-            <td>0.5元</td>
-            <td>2017-12-11</td>
-            <td>成功</td>
-        </tr>
         </tbody>
+        {!! $orders->links() !!}
     </table>
     <!-- /兑现列表 -->
 </div>
