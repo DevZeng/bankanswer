@@ -33,6 +33,16 @@ class ExamController extends Controller
             ]);
         }
     }
+    public function addExamPage()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $exam = Exam::find($id);
+        }else{
+            $exam = new Exam();
+        }
+        return view('exam.add',['exam'=>$exam]);
+    }
 
     public function getExams()
     {

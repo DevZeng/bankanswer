@@ -23,7 +23,7 @@
     <!-- 职员操作 -->
     <ul class="staff-operation">
         <li>
-            <a href="staffAdd.html">
+            <a href="{{url('add/staff')}}">
                 <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>

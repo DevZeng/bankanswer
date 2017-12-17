@@ -23,7 +23,7 @@
     <!-- 职员操作 -->
     <ul class="staff-operation">
         <li>
-            <a href="questionsAdd.html">
+            <a href="{{url('warehouse')}}">
                 <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>
@@ -60,7 +60,7 @@
             <td>{{$warehouse->updated_at}}</td>
             <td>{{$warehouse->created_at}}</td>
             <td>
-                <a class="btn info" href="questionsCheck.html?id=1">查看</a>
+                <a class="btn info" href="{{url('warehouse')}}?id={{$warehouse->id}}">查看</a>
                 <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
             </td>
         </tr>

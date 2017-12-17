@@ -70,7 +70,7 @@
                     <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
-                    <li class="navbar-sub-item" data-route="./examination/examinationConfig.html">考试设置</li>
+                    <li class="navbar-sub-item" data-route="{{url('exam')}}">考试设置</li>
                     <li class="navbar-sub-item" data-route="./examination/examinationResult.html">结果查询</li>
                 </ul>
             </li>

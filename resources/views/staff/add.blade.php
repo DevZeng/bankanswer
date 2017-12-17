@@ -26,7 +26,7 @@
         <form id="staff-submit" method="post">
             <label class="label-control">
                 <span class="label-text">登录工号：</span>
-                <input class="input-control" required type="text" name="username" value="{{$staff->name}}" placeholder="登录工号">
+                <input class="input-control" required type="text" name="username" value="{{$staff->username}}" placeholder="登录工号">
             </label>
             <label class="label-control">
                 <span class="label-text">密码：</span>
@@ -34,7 +34,7 @@
             </label>
             <label class="label-control">
                 <span class="label-text">真名：</span>
-                <input class="input-control" required type="text" name="name" placeholder="真名">
+                <input class="input-control" required type="text" name="name" value="{{$staff->name}}" placeholder="真名">
             </label>
             <label class="label-control">
                 <span class="label-text">性别：</span>
@@ -47,7 +47,7 @@
             </label>
             <label class="label-control">
                 <span class="label-text">联系电话：</span>
-                <input class="input-control" required type="text" name="mobile" placeholder="联系电话">
+                <input class="input-control" required type="text" name="mobile" value="{{$staff->mobile}}" placeholder="联系电话">
             </label>
             <div class="staff-add-btns">
                 <input type="submit"  value="提交"></input>

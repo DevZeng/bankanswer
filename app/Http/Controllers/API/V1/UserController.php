@@ -32,8 +32,12 @@ class UserController extends Controller
                 return redirect()->back()->with('status','该工号已被使用！');
             }
         }
+        $password = Input::get('password');
+        if (empty($password)){
+            $password = '123456';
+        }
         $staff->username = Input::get('username');
-        $staff->password = bcrypt(Input::get('password'));
+        $staff->password = bcrypt($password);
         $staff->name = Input::get('name');
         $staff->sex = Input::get('sex');
         $staff->mobile = Input::get('mobile');

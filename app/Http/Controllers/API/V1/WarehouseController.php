@@ -28,9 +28,20 @@ class WarehouseController extends Controller
         $warehouse->type = Input::get('type',1);
         if ($warehouse->save()){
             return response()->json([
-                'code'=>'200'
+                'code'=>'200',
+                'data'=>$warehouse
             ]);
         }
+    }
+    public function addWarehousePage()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $warehouse = Warehouse::find($id);
+        }else{
+            $warehouse = new Warehouse();
+        }
+        return view('question.add',['warehouse'=>$warehouse]);
     }
     public function listWarehouses()
     {
