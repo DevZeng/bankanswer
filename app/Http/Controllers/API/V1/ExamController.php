@@ -46,18 +46,8 @@ class ExamController extends Controller
 
     public function getExams()
     {
-        $page = Input::get('page',1);
-        $limit = Input::get('limit',10);
-        $exams = Exam::limit($limit)->offset(($page-1)*$limit)->get();
-        if (!empty($exams)){
-            for ($i=0;$i<count($exams);$i++){
-                $exams[$i]->warehouse = $exams[$i]->warehouse()->pluck('name')->first();
-            }
-        }
-        return response()->json([
-            'code'=>'200',
-            'data'=>$exams
-        ]);
+        $exams = Exam::paginate(10);
+        return view('exam.config',['exams'=>$exams]);
     }
     public function delExam($id)
     {
