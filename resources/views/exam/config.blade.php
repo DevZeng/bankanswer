@@ -24,7 +24,7 @@
     <!-- 考试设置操作 -->
     <ul class="staff-operation">
         <li>
-            <a href="examinationAdd.html">
+            <a href="{{url('add/exam')}}">
                 <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>

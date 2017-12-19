@@ -43,6 +43,7 @@ Route::post('warehouse','API\V1\WarehouseController@addWarehouse');
 Route::get('warehouses','API\V1\WarehouseController@getWarehouses');
 Route::get('del/warehouse/{id}','API\V1\WarehouseController@delWarehouse');
 Route::post('exam','API\V1\ExamController@delExam');
+Route::get('add/exam','API\V1\ExamController@addExamPage');
 Route::get('exams','API\V1\ExamController@getExams');
 Route::get('del/exam/{id}','API\V1\ExamController@delExam');
 Route::get('results','API\V1\ExamController@listResult');
