@@ -22,29 +22,29 @@
 
     <!-- 红包编辑表单 -->
     <div class="staff-add-form">
-      <form id="money-submit">
+      <form id="money-submit" method="post">
         <label class="label-control">
           <span class="label-text">最低正确率：</span>
-          <input class="input-control" required type="text" name="low_rate" placeholder="最低正确率">
+          <input class="input-control" required type="text" name="min" value="{{$packet->min}}" placeholder="最低正确率">
         </label>
         <label class="label-control">
           <span class="label-text">最高正确率：</span>
-          <input class="input-control" required type="text" name="high_rate" placeholder="最高正确率">
+          <input class="input-control" required type="text" name="max" value="{{$packet->max}}" placeholder="最高正确率">
         </label>
         <label class="label-control">
           <span class="label-text">最低红包金额：</span>
-          <input class="input-control" required type="text" name="low_money" placeholder="最低红包金额">
+          <input class="input-control" required type="text" name="min_price" value="{{$packet->min_price}}" placeholder="最低红包金额">
         </label>
         <label class="label-control">
           <span class="label-text">最高红包金额：</span>
-          <input class="input-control" required type="text" name="high_money" placeholder="最高红包金额">
+          <input class="input-control" required type="text" name="max_price" value="{{$packet->max_price}}" placeholder="最高红包金额">
         </label>
         <label class="label-control">
           <span class="label-text">题库：</span>
           <select class="input-control" required name="questions">
-            <option value="1">题库一</option>
-            <option value="2">题库二</option>
-            <option value="3">题库三</option>
+            @foreach($warehouses as $warehouse)
+            <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
+              @endforeach
           </select>
         </label>
         <div class="staff-add-btns">

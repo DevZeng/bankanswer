@@ -9,6 +9,7 @@ use App\Model\Staff;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Maatwebsite\Excel\Excel;
 
 class ExamController extends Controller
 {
@@ -85,7 +86,10 @@ class ExamController extends Controller
         $questions = Question::where('warehouse_id','=',$exam->warehouse_id)->get();
         return response()->json([
             'code'=>'200',
-            'data'=>$questions
+            'data'=>[
+                'exam'=>$exam,
+                'question'=>$questions
+            ]
         ]);
     }
     public function finishExam($id)
@@ -113,8 +117,8 @@ class ExamController extends Controller
         $right = 0;
         for ($i=0;$i<count($questions);$i++){
             $swap = $answer[$questions[$i]->id];
-            for ($i=0;$i<count($swap);$i++);{
-                strtolower($swap[$i]);
+            foreach ($swap as $value){
+                strtolower($value);
             }
             sort($swap);
             $swap = implode(',',$swap);
@@ -133,5 +137,10 @@ class ExamController extends Controller
         return response()->json([
             'code'=>'200'
         ]);
+    }
+    public function listResult()
+    {
+        $results = ExamList::paginate(10);
+        return view('exam.result',['results'=>$results]);
     }
 }

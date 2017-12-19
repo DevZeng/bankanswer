@@ -27,28 +27,23 @@
         <tr class="table-row">
             <th>序号</th>
             <th>管理员名称</th>
-            <th>真名</th>
             <th>添加时间</th>
         </tr>
         </thead>
         <tbody class="table-body">
         <!-- 循环列表 -->
+        @foreach($users as $user)
         <tr>
-            <td>1</td>
-            <td>1007</td>
-            <td>张飞</td>
-            <td>2017-12-01</td>
+            <td>{{$user->id}}</td>
+            <td>{{$user->username}}</td>
+            <td>{{$user->created_at}}</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-            <td>2</td>
-            <td>2003</td>
-            <td>刘德华</td>
-            <td>2017-12-01</td>
-        </tr>
         </tbody>
     </table>
     <!-- /结果列表 -->
+    {!! $users->links() !!}
 </div>
 @if (session('status'))
 {{--    {{dd(session('status'))}}--}}

@@ -76,19 +76,19 @@ class WarehouseController extends Controller
     public function finishTrain()
     {
         $uid = getUserToken(Input::get('token'));
-        $answers = Input::get('answer');
+        $answers = Input::get('answers');
         $warehouse_id = Input::get('warehouse_id');
         $count = count($answers);
         $right = 0;
         $wrong = '';
         foreach ($answers as $answer){
-            $question = Question::find($answer->id);
-            $result = $answer->answer;
-            for ($i=0;$i<count($result);$i++);{
-                strtolower($result[$i]);
+            $question = Question::find($answer['id']);
+            $results = $answer['answer'];
+            foreach ($results as $result){
+                strtolower($result);
             }
-            sort($result);
-            $result = implode(',',$result);
+            sort($results);
+            $result = implode(',',$results);
             if ($question->answer==$result){
                 $right+=1;
             }else{
@@ -105,7 +105,7 @@ class WarehouseController extends Controller
         $mistake->save();
         $accuracy = $right/$count;
         $redPacket = RedPacket::where('warehouse_id','=',$warehouse_id)
-        ->where('mix','<',$accuracy)->where('max','>',$accuracy)->first();
+        ->where('min','<',$accuracy)->where('max','>',$accuracy)->first();
         if ($redPacket){
             $order = new Order();
             $order->user_id = $uid;
@@ -114,12 +114,40 @@ class WarehouseController extends Controller
             $order->save();
             return response()->json([
                 'code'=>'200',
-                'data'=>$order->cash
+                'data'=>[
+                    'price'=>$order->cash,
+                    'score'=>$right,
+                    'accuracy'=>$accuracy,
+                    'number'=>$order->number
+                ]
             ]);
         }
         return response()->json([
             'code'=>'200',
-            'data'=>'0'
+            'data'=>[
+                'price'=>0,
+                'score'=>$right,
+                'accuracy'=>$accuracy
+            ]
+        ]);
+    }
+    public function listRedPackets()
+    {
+        $redpackets = RedPacket::paginate(10);
+        return view('money.list',['packets'=>$redpackets]);
+    }
+    public function addRedPacketPage()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $packet = RedPacket::find($id);
+        }else{
+            $packet = new RedPacket();
+        }
+        $warehouses = Warehouse::where('type','=','2')->get();
+        return view('money.add',[
+            'packet'=>$packet,
+            'warehouses'=>$warehouses
         ]);
     }
 }

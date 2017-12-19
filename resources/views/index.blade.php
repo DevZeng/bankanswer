@@ -71,7 +71,18 @@
                 </div>
                 <ul class="navbar-sub-list">
                     <li class="navbar-sub-item" data-route="{{url('exams')}}">考试设置</li>
-                    <li class="navbar-sub-item" data-route="./examination/examinationResult.html">结果查询</li>
+                    <li class="navbar-sub-item" data-route="{{url('results')}}">结果查询</li>
+                </ul>
+            </li>
+            <li class="navbar-item">
+                <div class="navbar-item-wrap">
+                    <img class="navbar-title-img" src="{{url('images/nav-icon.png')}}" alt="导航">
+                    <span>红包管理</span>
+                    <img class="navbar-item-arrow" src="{{url('images/arrow-left.png')}}" alt="展开">
+                    <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
+                </div>
+                <ul class="navbar-sub-list">
+                    <li class="navbar-sub-item" data-route="{{url('redpackets')}}">红包列表</li>
                 </ul>
             </li>
             <li class="navbar-item">
@@ -82,7 +93,7 @@
                     <img class="navbar-item-arrow down" src="{{url('images/arrow-down.png')}}" alt="展开">
                 </div>
                 <ul class="navbar-sub-list">
-                    <li class="navbar-sub-item" data-route="./admin/admin.html">管理员列表</li>
+                    <li class="navbar-sub-item" data-route="{{url('admins')}}">管理员列表</li>
                 </ul>
             </li>
         </ul>

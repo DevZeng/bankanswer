@@ -24,7 +24,7 @@
     <!-- 红包操作 -->
     <ul class="staff-operation">
       <li>
-        <a href="moneyAdd.html">
+        <a href="{{url('add/packet')}}">
           <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
           <span>添加</span>
         </a>
@@ -55,29 +55,21 @@
       </thead>
       <tbody class="table-body">
         <!-- 循环列表 -->
+        @foreach($packets as $packet)
         <tr>
           <td>
-            <input class="money-checkbox" data-id="1" type="checkbox">
+            <input class="money-checkbox" data-id="{{$packet->id}}" type="checkbox">
           </td>
-          <td>1</td>
-          <td>题库一</td>
-          <td>30%</td>
-          <td>80%</td>
-          <td>2元</td>
-          <td>6元</td>
+          <td>{{$packet->id}}</td>
+          <td>{{$packet->warehouse()->name}}</td>
+          <td>{{$packet->min*100}}%</td>
+          <td>{{$packet->max*100}}%</td>
+          <td>{{$packet->min_price}}元</td>
+          <td>{{$packet->max_price}}元</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-          <td>
-            <input class="money-checkbox" data-id="2" type="checkbox">
-          </td>
-          <td>2</td>
-          <td>题库二</td>
-          <td>30%</td>
-          <td>80%</td>
-          <td>2元</td>
-          <td>6元</td>
-        </tr>
+
       </tbody>
     </table>
     <!-- /红包列表 -->

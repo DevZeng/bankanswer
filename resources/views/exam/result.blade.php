@@ -45,21 +45,16 @@
         </thead>
         <tbody class="table-body">
         <!-- 循环列表 -->
+        @foreach($results as $result)
         <tr>
-            <td>1</td>
-            <td>1007</td>
-            <td>张飞</td>
-            <td>2017-12-01</td>
-            <td>2分</td>
+            <td>{{$result->id}}</td>
+            <td>{{$result->staff()->name}}</td>
+            <td>{{$result->staff()->username}}</td>
+            <td>{{$result->created_at}}</td>
+            <td>{{$result->score}}分</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-            <td>2</td>
-            <td>2003</td>
-            <td>刘德华</td>
-            <td>2017-12-01</td>
-            <td>99分</td>
-        </tr>
         </tbody>
     </table>
     <!-- /结果列表 -->

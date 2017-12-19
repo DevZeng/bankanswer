@@ -25,6 +25,7 @@ Route::get('test',function (){
 });
 Route::get('login','API\V1\UserController@loginPage');
 Route::get('index','API\V1\UserController@index');
+Route::get('admins','API\V1\UserController@listAdmin');
 Route::get('add/staff','API\V1\UserController@addStaffPage');
 Route::post('add/staff ','API\V1\UserController@addStaff');
 Route::get('list/staff','API\V1\UserController@listStaffPage');
@@ -33,6 +34,8 @@ Route::get('list/warehouse','API\V1\WarehouseController@listWarehouses');
 Route::any('upload','API\V1\UploadController@upload');
 Route::post('user/import','API\V1\UserController@importStaffs');
 Route::get('warehouse','API\V1\WarehouseController@addWarehousePage');
+Route::get('redpackets','API\V1\WarehouseController@listRedPackets');
+Route::get('add/packet','API\V1\WarehouseController@addRedPacketPage');
 Route::get('staffs','API\V1\UserController@getStaffs');
 Route::get('del/staffs','API\V1\UserController@delStaffs');
 Route::post('login','API\V1\UserController@login');
@@ -42,6 +45,9 @@ Route::get('del/warehouse/{id}','API\V1\WarehouseController@delWarehouse');
 Route::post('exam','API\V1\ExamController@delExam');
 Route::get('exams','API\V1\ExamController@getExams');
 Route::get('del/exam/{id}','API\V1\ExamController@delExam');
+Route::get('results','API\V1\ExamController@listResult');
 Route::post('question/import','API\V1\QuestionController@importQuestions');
 Route::get('export','API\V1\QuestionController@export');
 Route::get('del','API\V1\RedPacketController@delRedPackets');
+
+Route::post('upload','API\V1\UploadController@upload');

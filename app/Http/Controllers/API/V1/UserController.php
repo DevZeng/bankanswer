@@ -6,6 +6,7 @@ use App\Model\Mistake;
 use App\Model\Order;
 use App\Model\Question;
 use App\Model\Staff;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -156,5 +157,16 @@ class UserController extends Controller
     {
         $orders = Order::paginate(10);
         return view('staff.cash',['orders'=>$orders]);
+    }
+    public function cash()
+    {
+        return response()->json([
+            'code'=>'200'
+        ]);
+    }
+    public function listAdmin()
+    {
+        $users = User::paginate(10);
+        return view('user.admin',['users'=>$users]);
     }
 }

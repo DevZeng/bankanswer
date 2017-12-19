@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Model\Question;
+use App\Model\Warehouse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -139,7 +140,10 @@ class QuestionController extends Controller
         }
         return response()->json([
             'code'=>'200',
-            'data'=>$question
+            'data'=>[
+                'warehouse'=>Warehouse::find($warehouse_id),
+                'questions'=>$question
+            ]
         ]);
     }
 }
