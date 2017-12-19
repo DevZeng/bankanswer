@@ -244,8 +244,12 @@
 
         $edit.on('click', function (e) {
           var $checks = $('.staff-checkbox[type="checkbox"]:checked')
-          console.log($checks)
-          window.location.href = 'staffAdd.html'
+          var id = $checks.data('id')
+          if (!id) {
+            window.alert('请先选择！')
+            return false
+          }
+          window.location.href = 'staffAdd.html?id=' + id
         })
 
         $delete.on('click', function (e) {
@@ -365,9 +369,13 @@
         var $delete = $('#examination-delete')
 
         $edit.on('click', function () {
-          var checks = $('.examination-checkbox[type="checkbox"]:checked')
-          console.log(checks)
-          window.location.href = 'examinationAdd.html?id=' + checks.data('id')
+          var $checks = $('.examination-checkbox[type="checkbox"]:checked')
+          var id = $checks.data('id')
+          if (!id) {
+            window.alert('请先选择！')
+            return false
+          }
+          window.location.href = 'examinationAdd.html?id=' + id
         })
 
         $delete.on('click', function () {
@@ -425,7 +433,7 @@
      * 红包 页面 jq
      */
     var _money = {
-      init: function(){
+      init: function () {
         this.moneyOperation()
       },
 
@@ -435,9 +443,13 @@
         var $delete = $('#money-delete')
 
         $edit.on('click', function () {
-          var checks = $('.money-checkbox[type="checkbox"]:checked')
-          console.log(checks)
-          window.location.href = 'moneyAdd.html?id=' + checks.data('id')
+          var $checks = $('.money-checkbox[type="checkbox"]:checked')
+          var id = $checks.data('id')
+          if (!id) {
+            window.alert('请先选择！')
+            return false
+          }
+          window.location.href = 'moneyAdd.html?id=' + $checks.data('id')
         })
 
         $delete.on('click', function () {
