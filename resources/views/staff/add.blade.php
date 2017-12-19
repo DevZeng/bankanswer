@@ -23,7 +23,8 @@
 
     <!-- 员工添加表单 -->
     <div class="staff-add-form">
-        <form id="staff-submit" method="post">
+        <form method="post">
+            {{csrf_field()}}
             <label class="label-control">
                 <span class="label-text">登录工号：</span>
                 <input class="input-control" required type="text" name="username" value="{{$staff->username}}" placeholder="登录工号">
@@ -50,7 +51,7 @@
                 <input class="input-control" required type="text" name="mobile" value="{{$staff->mobile}}" placeholder="联系电话">
             </label>
             <div class="staff-add-btns">
-                <input type="submit"  value="提交"></input>
+                <input type="submit" class="btn success" value="提交"></input>
                 <input type="reset" class="btn info"></input>
             </div>
         </form>
@@ -60,7 +61,7 @@
     @if (session('status'))
     {{--    {{dd(session('status'))}}--}}
         <script type="text/javascript">
-            console.log({{session('status')}})
+            console.log("{{session('status')}}")
             alert("{{session('status')}}")
         </script>
     
