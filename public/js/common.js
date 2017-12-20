@@ -150,6 +150,25 @@
       },
 
       /**
+       * 题库删除
+       * @param {Array} data {ids}
+       * @param {Function} 回调
+       */
+      questionDel: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'del/warehouses',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
        * 考试添加表单提交
        */
       examinationAdd: function (data, cb) {
@@ -279,7 +298,7 @@
           for (var i = 0; i < $checks.length; i++) {
             postData.ids.push($($checks[i]).data('id'))
           }
-          _ajax.staffDel(postData, res => {
+          _ajax.staffDel(postData, function (res) {
             window.location.reload()
           })
         })
@@ -357,8 +376,16 @@
         })
 
         $delete.on('click', function () {
-          var checks = $('.question-checkbox[type="checkbox"]:checked')
-          console.log(checks)
+          var $checks = $('.question-checkbox[type="checkbox"]:checked')
+          var postData = {
+            ids: []
+          }
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks[i]).data('id'))
+          }
+          _ajax.questionDel(postData, function (res) {
+            window.location.reload()
+          })
         })
       },
 
