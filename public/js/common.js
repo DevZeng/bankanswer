@@ -249,7 +249,7 @@
             window.alert('请先选择！')
             return false
           }
-          window.location.href = 'staffAdd.html?id=' + id
+          window.location.href = '/add/staff?id=' + id
         })
 
         $delete.on('click', function (e) {
@@ -375,7 +375,7 @@
             window.alert('请先选择！')
             return false
           }
-          window.location.href = 'examinationAdd.html?id=' + id
+          window.location.href = '/add/exam?id=' + id
         })
 
         $delete.on('click', function () {
@@ -449,7 +449,7 @@
             window.alert('请先选择！')
             return false
           }
-          window.location.href = 'moneyAdd.html?id=' + $checks.data('id')
+          window.location.href = '/add/packet?id=' + $checks.data('id')
         })
 
         $delete.on('click', function () {
