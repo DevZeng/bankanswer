@@ -34,6 +34,7 @@ Route::get('list/warehouse','API\V1\WarehouseController@listWarehouses');
 Route::any('upload','API\V1\UploadController@upload');
 Route::post('user/import','API\V1\UserController@importStaffs');
 Route::get('warehouse','API\V1\WarehouseController@addWarehousePage');
+Route::get('show/warehouse/{id}','API\V1\WarehouseController@showWarehouse');
 Route::get('redpackets','API\V1\WarehouseController@listRedPackets');
 Route::post('del/packets','API\V1\WarehouseController@delRedPackets');
 Route::get('add/packet','API\V1\WarehouseController@addRedPacketPage');
