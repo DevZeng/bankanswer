@@ -435,11 +435,11 @@
         var $delete = $('#question-delete')
 
         $edit.on('click', function () {
+          var $checks = $('.question-checkbox[type="checkbox"]:checked')
           if ($checks.length === 0) {
             window.alert('请至少选一个！')
             return false
           }
-          var $checks = $('.question-checkbox[type="checkbox"]:checked')
           window.location.href = '/add/question?id=' + $checks.data('id') + '&warehouse_id=' + $checks.data('warehouse')
         })
 
