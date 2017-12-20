@@ -50,6 +50,9 @@ Route::get('exams','API\V1\ExamController@getExams');
 Route::post('del/exams','API\V1\ExamController@delExams');
 Route::get('results','API\V1\ExamController@listResult');
 Route::post('question/import','API\V1\QuestionController@importQuestions');
+Route::get('add/question','API\V1\QuestionController@addQuestionPage');
+Route::post('add/question','API\V1\QuestionController@addQuestion');
+Route::post('del/questions','API\V1\QuestionController@delQuestions');
 Route::get('export','API\V1\QuestionController@export');
 Route::get('del','API\V1\RedPacketController@delRedPackets');
 
