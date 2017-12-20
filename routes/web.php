@@ -38,6 +38,7 @@ Route::get('show/warehouse/{id}','API\V1\WarehouseController@showWarehouse');
 Route::get('redpackets','API\V1\WarehouseController@listRedPackets');
 Route::post('del/packets','API\V1\WarehouseController@delRedPackets');
 Route::get('add/packet','API\V1\WarehouseController@addRedPacketPage');
+Route::post('add/packet','API\V1\WarehouseController@addRedPacket');
 Route::get('staffs','API\V1\UserController@getStaffs');
 Route::post('del/staffs','API\V1\UserController@delStaffs');
 Route::post('login','API\V1\UserController@login');
@@ -53,6 +54,7 @@ Route::post('question/import','API\V1\QuestionController@importQuestions');
 Route::get('add/question','API\V1\QuestionController@addQuestionPage');
 Route::post('add/question','API\V1\QuestionController@addQuestion');
 Route::post('del/questions','API\V1\QuestionController@delQuestions');
+Route::get('trans','API\V1\QuestionController@trans');
 Route::get('export','API\V1\QuestionController@export');
 Route::get('del','API\V1\RedPacketController@delRedPackets');
 

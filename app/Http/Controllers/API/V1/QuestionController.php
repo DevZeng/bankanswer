@@ -6,6 +6,7 @@ use App\Model\Question;
 use App\Model\Warehouse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -116,6 +117,7 @@ class QuestionController extends Controller
                 $question->option_d = $origin[4];
                 $question->answer = $answer;
                 $question->type = 2;
+                $question->warehouse_id = $warehouse_id;
                 $question->save();
             });
         });
@@ -156,6 +158,37 @@ class QuestionController extends Controller
                 }
             });
         })->export('xlsx');
+    }
+    public function trans()
+    {
+        $data = DB::table('tp_question')->get();
+        for ($i=0;$i<count($data);$i++){
+            $answer = [];
+            if ($data[$i]->answer1==1) {
+                array_push($answer,'a');
+            }
+            if ($data[$i]->answer2==1) {
+                array_push($answer,'b');
+            }
+            if ($data[$i]->answer3==1) {
+                array_push($answer,'c');
+            }
+            if ($data[$i]->answer4==1) {
+                array_push($answer,'d');
+            }
+            $answer = implode(',',$answer);
+            $question = new Question();
+            $question->topic = $data[$i]->topic;
+            $question->option_a = $data[$i]->optiona;
+            $question->option_b = $data[$i]->optionb;
+            $question->option_c = $data[$i]->optionc;
+            $question->option_d = $data[$i]->optiond;
+            $question->type = $data[$i]->type;
+            $question->answer = $answer;
+            $question->warehouse_id = ($data[$i]->bank ==15)?1:2;
+            $question->save();
+        }
+        echo 'SUCCESS';
     }
     public function getQuestions()
     {

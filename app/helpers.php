@@ -25,3 +25,11 @@ if (!function_exists('getUserToken')) {
         return $uid;
     }
 }
+function getRandomFloat($min = 0, $max = 1) {
+      //if ($max < $min) {
+  //  return false;
+  //}
+  $rl = mt_rand() / mt_getrandmax();
+  //echo $min . ‘+(‘ . $rl . ‘*‘ . ($max - $min).‘)‘; echo ‘ = ‘;
+   return ($min + ($rl * ($max - $min)));
+ }

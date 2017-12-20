@@ -117,11 +117,12 @@ class ExamController extends Controller
         $right = 0;
         for ($i=0;$i<count($questions);$i++){
             $swap = $answer[$questions[$i]->id];
+            $result = [];
             foreach ($swap as $value){
-                strtolower($value);
+                array_push($result,strtolower($value));
             }
-            sort($swap);
-            $swap = implode(',',$swap);
+            sort($result);
+            $swap = implode(',',$result);
             if ($questions[$i]->answer==$swap){
                 $right+=1;
             }

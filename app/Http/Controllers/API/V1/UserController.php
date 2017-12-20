@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Excel;
+use Yansongda\Pay\Pay;
 
 class UserController extends Controller
 {
@@ -160,9 +161,20 @@ class UserController extends Controller
     }
     public function cash()
     {
-        return response()->json([
-            'code'=>'200'
-        ]);
+        $number = Input::get('number');
+        $order = Order::where([
+            'number'=>$number,
+            'state'=>0
+        ])->first();
+        $staff = Staff::find($order->user_id);
+        $payData = [
+            'out_trade_no' => $number,
+            'payee_type' => 'ALIPAY_LOGONID',        // 收款方账户类型(ALIPAY_LOGONID | ALIPAY_USERID)
+            'payee_account' => $staff->account,   // 收款方账户
+            'amount' => $order->price,
+        ];
+        $data = Pay::driver('alipay')->gateway('transfer')->pay($payData);
+        dd($data);
     }
     public function listAdmin()
     {

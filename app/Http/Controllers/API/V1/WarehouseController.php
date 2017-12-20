@@ -99,16 +99,18 @@ class WarehouseController extends Controller
         foreach ($answers as $answer){
             $question = Question::find($answer['id']);
             $results = $answer['answer'];
-            foreach ($results as $result){
-                strtolower($result);
+            $result = [];
+            foreach ($results as $item){
+                array_push($result,strtolower($item));
             }
-            sort($results);
-            $result = implode(',',$results);
+            sort($result);
+            $result = implode(',',$result);
             if ($question->answer==$result){
                 $right+=1;
             }else{
                 $wrong.=$question->id.',';
             }
+
         }
         $mistake = Mistake::where('user_id','=',$uid)->first();
         if (empty($mistake)){
@@ -125,7 +127,8 @@ class WarehouseController extends Controller
             $order = new Order();
             $order->user_id = $uid;
             $order->number = self::makePaySn($uid);
-            $order->cash = rand($redPacket->min_price,$redPacket->max_price);
+            $price = getRandomFloat($redPacket->min_price,$redPacket->max_price);
+            $order->cash = round($price,2);
             $order->save();
             return response()->json([
                 'code'=>'200',
@@ -164,6 +167,22 @@ class WarehouseController extends Controller
             'packet'=>$packet,
             'warehouses'=>$warehouses
         ]);
+    }
+    public function addRedPacket()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $packet = RedPacket::find($id);
+        }else{
+            $packet = new RedPacket();
+        }
+        $packet->warehouse_id = Input::get('warehouse_id');
+        $packet->min = Input::get('min');
+        $packet->max = Input::get('max');
+        $packet->min_price = Input::get('min_price');
+        $packet->max_price = Input::get('max_price');
+        $packet->save();
+        return redirect()->back()->with('status','操作成功！');
     }
     public function showWarehouse($id)
     {

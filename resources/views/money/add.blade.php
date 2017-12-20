@@ -23,13 +23,14 @@
     <!-- 红包编辑表单 -->
     <div class="staff-add-form">
       <form id="money-submit" method="post">
+        {{csrf_field()}}
         <label class="label-control">
           <span class="label-text">最低正确率：</span>
-          <input class="input-control" required type="text" name="min" value="{{$packet->min}}" placeholder="最低正确率">
+          <input class="input-control" required type="text" name="min" value="{{$packet->min}}" placeholder="最低正确率,格式（0.01-1）">
         </label>
         <label class="label-control">
           <span class="label-text">最高正确率：</span>
-          <input class="input-control" required type="text" name="max" value="{{$packet->max}}" placeholder="最高正确率">
+          <input class="input-control" required type="text" name="max" value="{{$packet->max}}" placeholder="最高正确率,格式（0.01-1）">
         </label>
         <label class="label-control">
           <span class="label-text">最低红包金额：</span>
@@ -41,7 +42,7 @@
         </label>
         <label class="label-control">
           <span class="label-text">题库：</span>
-          <select class="input-control" required name="questions">
+          <select class="input-control" required name="warehouse_id">
             @foreach($warehouses as $warehouse)
             <option value="{{$warehouse->id}}">{{$warehouse->name}}</option>
               @endforeach
