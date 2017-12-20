@@ -466,7 +466,6 @@
         var $upload = $('#question-upload')
 
         $upload.on('change', function (e) {
-          console.log(1, this.files)
           var formData = new FormData()
           var files = this.files
           if (files.length < 1) {
