@@ -15,6 +15,9 @@ class VerifyCsrfToken extends BaseVerifier
         //
         'del/staffs',
         'del/warehouses',
-        'del/exams'
+        'del/exams',
+        'del/questions',
+        'del/packets',
+        'upload'
     ];
 }

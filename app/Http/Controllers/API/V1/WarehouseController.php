@@ -59,6 +59,7 @@ class WarehouseController extends Controller
         }
         Warehouse::whereIn('id',$id)->delete();
         Question::whereIn('warehouse_id',$id)->delete();
+        RedPacket::whereIn('warehouse_id',$id)->delete();
         return response()->json([
             'code'=>'200'
         ]);

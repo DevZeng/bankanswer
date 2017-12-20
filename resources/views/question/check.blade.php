@@ -27,7 +27,7 @@
     <!-- 题库查看操作 -->
     <ul class="staff-operation">
         <li>
-            <a href="questionsAdd.html">
+            <a href="{{url('add/question')}}">
                 <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>
@@ -62,7 +62,7 @@
         @foreach($questions as $question)
         <tr>
             <td>
-                <input class="question-checkbox" data-id="{{$question->id}}" type="checkbox">
+                <input class="question-checkbox" data-warehouse="{{$question->warehouse_id}}" data-id="{{$question->id}}" type="checkbox">
             </td>
             <td>{{$question->id}}</td>
             <td title="{{$question->topic}}">{{$question->topic}}</td>

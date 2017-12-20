@@ -56,6 +56,7 @@ class QuestionController extends Controller
         $question->option_d = Input::get('option_d');
         $question->answer = Input::get('answer');
         $question->type = Input::get('type');
+        $question->warehouse_id = Input::get('warehouse_id');
         if ($question->save()){
             return redirect()->back()->with('status','操作成功！');
         }
