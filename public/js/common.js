@@ -185,6 +185,25 @@
         })
       },
 
+      /**
+       * 考试删除
+       * @param {Object} data {ids}
+       * @param {Function} 回调
+       */
+      examinationDel: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'del/exams',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
 
       /**
        * 红包表单提交
@@ -193,6 +212,25 @@
         $.ajax({
           type: 'POST',
           url: this.host + 'money/add',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
+       * 红包删除
+       * @param {Object} data {ids}
+       * @param {Function} cb 回调
+       */
+      moneyDel: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'del/packets',
           data: data,
           success: function (res) {
             typeof cb === 'function' && cb(res)
@@ -389,6 +427,9 @@
             window.alert('请至少选一个！')
             return false
           }
+          // for(var i = 0; i < $checks.length; i++){
+
+          // }
         })
       },
 
@@ -436,8 +477,20 @@
         })
 
         $delete.on('click', function () {
-          var checks = $('.examination-checkbox[type="checkbox"]:checked')
-          console.log(checks)
+          var $checks = $('.examination-checkbox[type="checkbox"]:checked')
+          if ($checks.length < 1) {
+            window.alert('请先选择！')
+          }
+          var postData = {
+            ids: []
+          }
+
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks[i]).data('id'))
+          }
+          _ajax.examinationDel(postData, function (res) {
+            window.location.reload()
+          })
         })
       },
 
@@ -510,8 +563,19 @@
         })
 
         $delete.on('click', function () {
-          var checks = $('.money-checkbox[type="checkbox"]:checked')
-          console.log(checks)
+          var $checks = $('.money-checkbox[type="checkbox"]:checked')
+          if ($checks.length < 1) {
+            window.alert('请先选择！')
+          }
+          var postData = {
+            ids: []
+          }
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks).data('id'))
+          }
+          _ajax.moneyDel(postData, function (res) {
+            window.location.reload()
+          })
         })
       },
 
