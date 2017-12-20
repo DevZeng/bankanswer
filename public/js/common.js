@@ -334,7 +334,15 @@
 
         $delete.on('click', function (e) {
           var checks = $('.questions-checkbox[type="checkbox"]:checked')
-          console.log(checks)
+          var postData = {
+            ids: []
+          }
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks[i]).data('id'))
+          }
+          _ajax.questionDel(postData, function (res) {
+            window.location.reload()
+          })
         })
       },
 
@@ -377,15 +385,10 @@
 
         $delete.on('click', function () {
           var $checks = $('.question-checkbox[type="checkbox"]:checked')
-          var postData = {
-            ids: []
+          if ($checks.length === 0) {
+            window.alert('请至少选一个！')
+            return false
           }
-          for (var i = 0; i < $checks.length; i++) {
-            postData.ids.push($($checks[i]).data('id'))
-          }
-          _ajax.questionDel(postData, function (res) {
-            window.location.reload()
-          })
         })
       },
 
