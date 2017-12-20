@@ -333,7 +333,7 @@
         var $delete = $('#questions-delete')
 
         $delete.on('click', function (e) {
-          var checks = $('.questions-checkbox[type="checkbox"]:checked')
+          var $checks = $('.questions-checkbox[type="checkbox"]:checked')
           var postData = {
             ids: []
           }
