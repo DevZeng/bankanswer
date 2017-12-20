@@ -389,8 +389,9 @@
           }
           formData.append('file', files[0])
           _ajax.upload(formData, function (res) {
+            console.log(res)
             var postData = {
-              file: res.data.file_name
+              file: res.data.data.file_name
             }
             _ajax.staffImport(postData, function (res) {
               window.alert('上传成功！')
