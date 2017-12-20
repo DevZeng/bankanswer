@@ -188,6 +188,25 @@
       },
 
       /**
+       * 题目导入
+       * @param {Object} data {file, warehouse_id}
+       * @param {Function} cb 回调
+       */
+      questionImport: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'question/import',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
        * 题库删除
        * @param {Array} data {ids}
        * @param {Function} 回调
@@ -391,7 +410,7 @@
               file: res.data.file_name
             }
             _ajax.staffImport(postData, function (res) {
-              window.alert('上传成功！')
+              window.location.reload()
             })
           })
         })
@@ -430,7 +449,7 @@
       //题库添加保存
       questionsSubmit: function () {
         var $submit = $('#questions-submit')
-        var $upload = $('#questions-upload')
+        var $upload = $('#question-upload')
 
         $upload.on('change', function (e) {
           var formData = new FormData()
@@ -440,7 +459,13 @@
           }
           formData.append('file', files[0])
           _ajax.upload(formData, function (res) {
-            console.log(res)
+            var postData = {
+              file: res.data.file_name,
+              warehouse_id: $upload.data('warehouse')
+            }
+            _ajax.questionImport(postData, function (res) {
+              window.location.reload()
+            })
           })
         })
 

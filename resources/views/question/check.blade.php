@@ -40,6 +40,13 @@
             <img class="staff-icon" src="{{url('images/delete.png')}}" alt="删除">
             <span>删除</span>
         </li>
+        <li id="staff-delete">
+            <label style="cursor: pointer;">
+                <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
+                <span>上传题目</span>
+                <input type="file" id="question-upload" data-warehouse="{{$question->warehouse_id}}" hidden>
+            </label>
+        </li>
     </ul>
     <!-- /题库查看操作 -->
 

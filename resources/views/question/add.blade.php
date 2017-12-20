@@ -29,12 +29,11 @@
                 <input class="input-control" required type="text" name="question_name" placeholder="题库名">
             </label>
             <label class="label-control">
-                <span class="label-text">题目导入：</span>
-                <input type="file" id="questions-upload" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
-            </label>
-            <label class="label-control">
-                <p class="danger-text">*请严格按照格式上传 Excel 文件！</p>
-                <a href="download" target="_blank">Excel 模版下载</a>
+                <span class="label-text">题库类型：</span>
+                <select class="input-control" required name="examination_question">
+                    <option value="1">练习题库</option>
+                    <option value="2">考试题库</option>
+                </select>
             </label>
             <div class="staff-add-btns">
                 <input type="submit" class="btn success" value="提交"></input>
