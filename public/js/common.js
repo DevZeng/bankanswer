@@ -112,6 +112,27 @@
       },
 
       /**
+       * 职员导入
+       * @param {Object} data {file}
+       * @param {Function} cb 回调
+       */
+      staffImport: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'user/import',
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
        * 题库表单提交
        * @param {Object} data
        * @param {Function} 回调
@@ -368,7 +389,12 @@
           }
           formData.append('file', files[0])
           _ajax.upload(formData, function (res) {
-            console.log(res)
+            var postData = {
+              file: res.data.file_name
+            }
+            _ajax.staffImport(postData, function (res) {
+              window.alert('上传成功！')
+            })
           })
         })
       }

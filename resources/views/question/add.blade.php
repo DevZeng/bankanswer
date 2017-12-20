@@ -30,7 +30,7 @@
             </label>
             <label class="label-control">
                 <span class="label-text">题目导入：</span>
-                <input type="file" id="questions-upload">
+                <input type="file" id="questions-upload" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
             </label>
             <label class="label-control">
                 <p class="danger-text">*请严格按照格式上传 Excel 文件！</p>

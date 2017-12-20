@@ -40,7 +40,7 @@
             <label style="cursor: pointer;">
                 <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
                 <span>上传职员列表</span>
-                <input type="file" id="staff-upload" hidden>
+                <input type="file" id="staff-upload" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
             </label>
         </li>
     </ul>
