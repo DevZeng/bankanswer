@@ -173,7 +173,7 @@ class UserController extends Controller
             'payee_account' => $staff->account,   // 收款方账户
             'amount' => $order->price,
         ];
-        $data = Pay::driver('alipay')->gateway('transfer')->pay($payData);
+        $data = \Yansongda\LaravelPay\Facades\Pay::driver('alipay')->gateway('transfer')->pay($payData);
         dd($data);
     }
     public function listAdmin()
