@@ -48,20 +48,34 @@ class WarehouseController extends Controller
         $warehouses = Warehouse::paginate(10);
         return view('question.list',['warehouses'=>$warehouses]);
     }
-    public function delWarehouse($id)
+    public function delWarehouses()
     {
-        $warehouse = Warehouse::find($id);
-        if (empty($warehouse)){
+        $id = Input::get('ids');
+        if (!$id||!is_array($id)){
             return response()->json([
-                'code'=>'404',
-                'msg'=>'Not Found'
+                'code'=>'400',
+                'msg'=>"参数错误！"
             ]);
         }
-        if ($warehouse->delete()){
+        Warehouse::whereIn('id',$id)->delete();
+        Question::whereIn('warehouse_id',$id)->delete();
+        return response()->json([
+            'code'=>'200'
+        ]);
+    }
+    public function delRedPackets()
+    {
+        $id = Input::get('ids');
+        if (!$id||!is_array($id)){
             return response()->json([
-                'code'=>'200'
+                'code'=>'400',
+                'msg'=>"参数错误！"
             ]);
         }
+        RedPacket::whereIn('id',$id)->delete();
+        return response()->json([
+            'code'=>'200'
+        ]);
     }
     public function getTrains()
     {

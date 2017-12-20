@@ -50,20 +50,19 @@ class ExamController extends Controller
         $exams = Exam::paginate(10);
         return view('exam.config',['exams'=>$exams]);
     }
-    public function delExam($id)
+    public function delExams()
     {
-        $exam = Exam::find($id);
-        if (empty($exam)){
+        $id = Input::get('ids');
+        if (!$id||!is_array($id)){
             return response()->json([
-                'code'=>'404',
-                'msg'=>'Not Found'
+                'code'=>'400',
+                'msg'=>"参数错误！"
             ]);
         }
-        if ($exam->delete()){
-            return response()->json([
-                'code'=>'200'
-            ]);
-        }
+        Exam::whereIn('id',$id)->delete();
+        return response()->json([
+            'code'=>'200'
+        ]);
     }
     public function getNowExams()
     {
