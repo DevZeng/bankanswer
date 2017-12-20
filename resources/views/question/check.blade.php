@@ -44,7 +44,7 @@
             <label style="cursor: pointer;">
                 <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
                 <span>上传题目</span>
-                <input type="file" id="question-upload" data-warehouse="{{$question->warehouse_id}}" hidden>
+                <input type="file" id="question-upload" data-warehouse="{{$warehouse->id}}" hidden>
             </label>
         </li>
     </ul>

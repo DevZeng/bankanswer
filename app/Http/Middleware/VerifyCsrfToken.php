@@ -18,6 +18,8 @@ class VerifyCsrfToken extends BaseVerifier
         'del/exams',
         'del/questions',
         'del/packets',
-        'upload'
+        'upload',
+        'user/import',
+        'question/import'
     ];
 }
