@@ -28,7 +28,7 @@
         // })
       },
 
-      host: 'http://192.168.3.44:8081/api/v1/',
+      host: '/',
 
       errFnc: function (err) {
         console.log(err)
@@ -61,6 +61,25 @@
         $.ajax({
           type: 'POST',
           url: this.host + 'staff/add',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
+       * 职员删除
+       * @param {Array} data {ids}
+       * @param {Function} cb 回调
+       */
+      staffDel: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'del/staffs',
           data: data,
           success: function (res) {
             typeof cb === 'function' && cb(res)
@@ -254,7 +273,15 @@
 
         $delete.on('click', function (e) {
           var $checks = $('.staff-checkbox[type="checkbox"]:checked')
-          console.log($checks.data('id'))
+          var postData = {
+            ids: []
+          }
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks[i]).data('id'))
+          }
+          _ajax.staffDel(postData, res => {
+            window.location.reload()
+          })
         })
 
         $upload.on('change', function (e) {
