@@ -21,7 +21,7 @@
     <!-- /公有导航 -->
 
     <div class="sub-sub-header">
-        这是题库：{{name}}
+        这是题库：{{$warehouse->name}}
     </div>
 
     <!-- 题库查看操作 -->
@@ -59,33 +59,25 @@
         </thead>
         <tbody class="table-body">
         <!-- 循环列表 -->
+        @foreach($questions as $question)
         <tr>
             <td>
-                <input class="question-checkbox" data-id="1" type="checkbox">
+                <input class="question-checkbox" data-id="{{$question->id}}" type="checkbox">
             </td>
-            <td>1</td>
-            <td title="这是一道题目">这是一道题目</td>
-            <td>这是A选项</td>
-            <td>这是B选项</td>
-            <td>这是C选项</td>
-            <td>这是D选项</td>
-            <td>AC</td>
+            <td>{{$question->id}}</td>
+            <td title="{{$question->topic}}">{{$question->topic}}</td>
+            <td>{{$question->option_a}}</td>
+            <td>{{$question->option_b}}</td>
+            <td>{{$question->option_c}}</td>
+            <td>{{$question->option_d}}</td>
+            <td>{{$question->answer}}</td>
         </tr>
+        @endforeach
         <!-- /循环列表 -->
-        <tr>
-            <td>
-                <input class="question-checkbox" data-id="2" type="checkbox">
-            </td>
-            <td>2</td>
-            <td title="这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目">这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目这是一道题目</td>
-            <td>这是A选项</td>
-            <td>这是B选项</td>
-            <td>这是C选项</td>
-            <td>这是D选项</td>
-            <td>AC</td>
-        </tr>
+
         </tbody>
     </table>
+    {!! $questions->links() !!}
     <!-- /题库查看列表 -->
 </div>
 

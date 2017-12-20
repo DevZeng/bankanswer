@@ -49,7 +49,28 @@ class QuestionController extends Controller
         }else{
             $question = new Question();
         }
-//        $question->
+        $question->topic = Input::get('topic');
+        $question->option_a = Input::get('option_a');
+        $question->option_b = Input::get('option_b');
+        $question->option_c = Input::get('option_c');
+        $question->option_d = Input::get('option_d');
+        $question->answer = Input::get('answer');
+        $question->type = Input::get('type');
+        if ($question->save()){
+            return redirect()->back()->with('status','操作成功！');
+        }
+    }
+    public function addQuestionPage()
+    {
+        $id = Input::get('id');
+        if ($id){
+            $question = Question::find($id);
+        }else{
+            $question = new Question();
+        }
+        return view('question.edit',[
+            'question'=>$question
+        ]);
     }
     public function importQuestions()
     {

@@ -62,7 +62,7 @@
             <td>{{$warehouse->created_at}}</td>
             <td>
                 <a class="btn info" href="{{url('warehouse')}}?id={{$warehouse->id}}">查看</a>
-                <a class="btn success" href="questionsAdd.html?id=2">编辑</a>
+                <a class="btn success" href="{{url('show/warehouse')}}/{{$warehouse->id}}">编辑</a>
             </td>
         </tr>
         <!-- /循环列表 -->

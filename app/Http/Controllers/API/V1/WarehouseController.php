@@ -164,4 +164,13 @@ class WarehouseController extends Controller
             'warehouses'=>$warehouses
         ]);
     }
+    public function showWarehouse($id)
+    {
+        $warehouse = Warehouse::find($id);
+        $questions = Question::where('warehouse_id','=',$id)->paginate(10);
+        return view('question.check',[
+            'warehouse'=>$warehouse,
+            'questions'=>$questions
+        ]);
+    }
 }
