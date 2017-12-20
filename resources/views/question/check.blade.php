@@ -27,7 +27,7 @@
     <!-- 题库查看操作 -->
     <ul class="staff-operation">
         <li>
-            <a href="{{url('add/question')}}">
+            <a href="{{url('add/question')}}?warehouse_id={{$warehouse->id}}">
                 <img class="staff-icon" src="{{url('images/add.png')}}" alt="添加">
                 <span>添加</span>
             </a>

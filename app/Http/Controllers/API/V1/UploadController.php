@@ -30,8 +30,8 @@ class UploadController extends Controller
         $allow = \Config::get('fileAllow');
         if (!in_array(strtolower($name[1]),$allow)){
             return response()->json([
-                'return_code'=>'FAIL',
-                'return_msg'=>'不支持的文件格式'
+                'code'=>'500',
+                'msg'=>'不支持的文件格式'
             ]);
         }
         $md5 = md5_file($file);

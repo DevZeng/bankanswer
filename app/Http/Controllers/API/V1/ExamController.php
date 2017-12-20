@@ -60,6 +60,7 @@ class ExamController extends Controller
             ]);
         }
         Exam::whereIn('id',$id)->delete();
+        ExamList::whereIn('exam_id',$id)->delete();
         return response()->json([
             'code'=>'200'
         ]);

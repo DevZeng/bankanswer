@@ -22,40 +22,41 @@
 
     <!-- 题目编辑表单 -->
     <div class="staff-add-form">
-        <form id="question-submit">
+        <form method="post">
+            {{csrf_field()}}
             <label class="label-control">
                 <span class="label-text">题目：</span>
-                <textarea class="input-control" rows="4" style="width: 400px;" required type="text" name="question_titile" placeholder="请输入题目"></textarea>
+                <textarea class="input-control" rows="4" style="width: 400px;" required type="text" name="topic" placeholder="请输入题目">{{$question->topic}}</textarea>
             </label>
             <label class="label-control">
                 <span class="label-text">A：</span>
-                <input class="input-control" required type="text" name="answer_a" placeholder="选项A答案">
+                <input class="input-control" required type="text" name="option_a" value="{{$question->option_a}}" placeholder="选项A答案">
             </label>
             <label class="label-control">
                 <span class="label-text">B：</span>
-                <input class="input-control" required type="text" name="answer_b" placeholder="选项B答案">
+                <input class="input-control" required type="text" name="option_b" value="{{$question->option_b}}" placeholder="选项B答案">
             </label>
             <label class="label-control">
                 <span class="label-text">C：</span>
-                <input class="input-control" required type="text" name="answer_c" placeholder="选项C答案">
+                <input class="input-control" required type="text" name="option_c" value="{{$question->option_c}}" placeholder="选项C答案">
             </label>
             <label class="label-control">
                 <span class="label-text">D：</span>
-                <input class="input-control" required type="text" name="answer_d" placeholder="选项D答案">
+                <input class="input-control" required type="text" name="option_d" value="{{$question->option_d}}" placeholder="选项D答案">
             </label>
             <label class="label-control">
                 <span class="label-text">答案：</span>
                 <label class="radio-label">
-                    <input type="checkbox" name="answer" value="a">A
+                    <input type="checkbox" name="answer[]" value="a">A
                 </label>
                 <label class="radio-label">
-                    <input type="checkbox" name="answer" value="b">B
+                    <input type="checkbox" name="answer[]" value="b">B
                 </label>
                 <label class="radio-label">
-                    <input type="checkbox" name="answer" value="c">C
+                    <input type="checkbox" name="answer[]" value="c">C
                 </label>
                 <label class="radio-label">
-                    <input type="checkbox" name="answer" value="d">D
+                    <input type="checkbox" name="answer[]" value="d">D
                 </label>
             </label>
             <div class="staff-add-btns">

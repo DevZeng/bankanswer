@@ -49,13 +49,19 @@ class QuestionController extends Controller
         }else{
             $question = new Question();
         }
+        $answer = Input::get('answer');
+        for ($i=0;$i<count($answer);$i++){
+            $answer[$i] = strtolower($answer[$i]);
+        }
+        sort($answer);
+        $type = count($answer)==1?1:2;
         $question->topic = Input::get('topic');
         $question->option_a = Input::get('option_a');
         $question->option_b = Input::get('option_b');
         $question->option_c = Input::get('option_c');
         $question->option_d = Input::get('option_d');
-        $question->answer = Input::get('answer');
-        $question->type = Input::get('type');
+        $question->answer = implode(',',$answer);;
+        $question->type = $type;
         $question->warehouse_id = Input::get('warehouse_id');
         if ($question->save()){
             return redirect()->back()->with('status','操作成功！');

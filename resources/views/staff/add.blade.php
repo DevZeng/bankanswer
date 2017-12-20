@@ -31,7 +31,7 @@
             </label>
             <label class="label-control">
                 <span class="label-text">密码：</span>
-                <input class="input-control" required type="text" name="password" placeholder="默认密码123456">
+                <input class="input-control" required type="text" name="password" value="{{empty($staff->password)?'123456':$staff->password}}"   placeholder="默认密码123456">
             </label>
             <label class="label-control">
                 <span class="label-text">真名：</span>
