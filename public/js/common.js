@@ -449,9 +449,24 @@
       //题库添加保存
       questionsSubmit: function () {
         var $submit = $('#questions-submit')
+
+        $submit.on('submit', function (e) {
+          const $this = $(this)
+          var data = _common.JSONData($this.serializeArray())
+          _ajax.questionsAdd(data, function (res) {
+            window.location.href = 'questions.html'
+          })
+          e.preventDefault()
+        })
+      },
+
+      questionOperation: function () {
+        var $edit = $('#question-edit')
+        var $delete = $('#question-delete')
         var $upload = $('#question-upload')
 
         $upload.on('change', function (e) {
+          console.log(1, this.files)
           var formData = new FormData()
           var files = this.files
           if (files.length < 1) {
@@ -468,20 +483,6 @@
             })
           })
         })
-
-        $submit.on('submit', function (e) {
-          const $this = $(this)
-          var data = _common.JSONData($this.serializeArray())
-          _ajax.questionsAdd(data, function (res) {
-            window.location.href = 'questions.html'
-          })
-          e.preventDefault()
-        })
-      },
-
-      questionOperation: function () {
-        var $edit = $('#question-edit')
-        var $delete = $('#question-delete')
 
         $edit.on('click', function () {
           var $checks = $('.question-checkbox[type="checkbox"]:checked')
