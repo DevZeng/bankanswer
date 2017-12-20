@@ -150,6 +150,25 @@
       },
 
       /**
+       * 题目删除
+       * @param {Object} data {ids}
+       * @param {Function} cb 回调
+       */
+      questionDel: function (data, cb) {
+        $.ajax({
+          type: 'POST',
+          url: this.host + 'del/questions',
+          data: data,
+          success: function (res) {
+            typeof cb === 'function' && cb(res)
+          },
+          error: function (err) {
+            _ajax.errFnc(err)
+          }
+        })
+      },
+
+      /**
        * 题库删除
        * @param {Array} data {ids}
        * @param {Function} 回调
@@ -416,9 +435,12 @@
         var $delete = $('#question-delete')
 
         $edit.on('click', function () {
-          var checks = $('.question-checkbox[type="checkbox"]:checked')
-          console.log(checks)
-          window.location.href = 'questionEdit.html?id=' + checks.data('id')
+          if ($checks.length === 0) {
+            window.alert('请至少选一个！')
+            return false
+          }
+          var $checks = $('.question-checkbox[type="checkbox"]:checked')
+          window.location.href = '/add/question?id=' + $checks.data('id') + '&warehouse_id=' + $checks.data('warehouse')
         })
 
         $delete.on('click', function () {
@@ -427,9 +449,16 @@
             window.alert('请至少选一个！')
             return false
           }
-          // for(var i = 0; i < $checks.length; i++){
+          var postData = {
+            ids: []
+          }
 
-          // }
+          for (var i = 0; i < $checks.length; i++) {
+            postData.ids.push($($checks).data('id'))
+          }
+          _ajax.questionDel(postData, function (res) {
+            window.location.reload()
+          })
         })
       },
 
