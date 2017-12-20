@@ -40,7 +40,7 @@
             <img class="staff-icon" src="{{url('images/delete.png')}}" alt="删除">
             <span>删除</span>
         </li>
-        <li id="staff-delete">
+        <li>
             <label style="cursor: pointer;">
                 <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
                 <span>上传题目</span>
