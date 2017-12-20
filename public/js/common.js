@@ -176,7 +176,7 @@
       questionDel: function (data, cb) {
         $.ajax({
           type: 'POST',
-          url: this.host + 'del/warehouses',
+          url: this.host + 'del/questions',
           data: data,
           success: function (res) {
             typeof cb === 'function' && cb(res)
