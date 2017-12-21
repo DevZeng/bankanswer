@@ -163,9 +163,20 @@ class UserController extends Controller
     {
         $number = Input::get('number');
         $order = Order::where([
-            'number'=>$number,
-            'state'=>0
+            'number'=>$number
         ])->first();
+        if (empty($order)){
+            return response()->json([
+                'code'=>'404',
+                'msg'=>'该红包不存在！'
+            ]);
+        }
+        if ($order->state ==1){
+            return response()->json([
+                'code'=>'400',
+                'msg'=>'该红包已经领取！'
+            ]);
+        }
         $staff = Staff::find($order->user_id);
         $payData = [
             'out_biz_no' => $number,
@@ -183,6 +194,10 @@ class UserController extends Controller
                 $order->remark = '转账失败！';
                 $order->state = 2;
                 $order->save();
+                return response()->json([
+                    'code'=>'400',
+                    'msg'=>'领取失败！'
+                ]);
             }
         }catch (\Exception $exception){
             $order->state = 2;
