@@ -53,4 +53,8 @@ class RedPacketController extends Controller
             'data'=>$packets
         ]);
     }
+    public function test()
+    {
+
+    }
 }
