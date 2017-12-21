@@ -173,8 +173,26 @@ class UserController extends Controller
             'payee_account' => $staff->account,   // 收款方账户
             'amount' => $order->cash,
         ];
-        $data = \Yansongda\LaravelPay\Facades\Pay::driver('alipay')->gateway('transfer')->pay($payData);
-        dd($data);
+        try{
+            $data = \Yansongda\LaravelPay\Facades\Pay::driver('alipay')->gateway('transfer')->pay($payData);
+            if($data['code']=='10000'){
+                $order->state = 1;
+                $order->finish_time = time();
+                $order->save();
+            }else{
+                $order->remark = '转账失败！';
+                $order->state = 2;
+                $order->save();
+            }
+        }catch (\Exception $exception){
+            $order->state = 2;
+            $order->remark  = $exception->getMessage();
+            $order->save();
+        }
+
+        return response()->json([
+            'code'=>'200'
+        ]);
     }
     public function listAdmin()
     {
