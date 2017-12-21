@@ -203,6 +203,10 @@ class UserController extends Controller
             $order->state = 2;
             $order->remark  = $exception->getMessage();
             $order->save();
+            return response()->json([
+                'code'=>'400',
+                'msg'=>'领取失败！'
+            ]);
         }
 
         return response()->json([
