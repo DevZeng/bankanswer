@@ -36,11 +36,17 @@
             <img class="staff-icon" src="{{url('images/delete.png')}}" alt="删除">
             <span>删除</span>
         </li>
-        <li id="staff-delete">
+        <li>
             <label style="cursor: pointer;">
                 <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
                 <span>上传职员列表</span>
                 <input type="file" id="staff-upload" hidden>
+            </label>
+        </li>
+        <li id="staff-file">
+            <label style="cursor: pointer;">
+                <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
+                <a href="{{url('uploads/8a25f7b0feed7532a71aba48288aa874.xlsx')}}"><span>模板下载</span></a>
             </label>
         </li>
     </ul>

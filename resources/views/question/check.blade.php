@@ -47,6 +47,12 @@
                 <input type="file" id="question-upload" data-warehouse="{{$warehouse->id}}" hidden>
             </label>
         </li>
+        <li id="question-file">
+            <label style="cursor: pointer;">
+                <img class="staff-icon" src="{{url('images/upload.png')}}" alt="上传">
+                <a href="{{url('uploads/615586b36c85ee54815be0f58494e669.xlsx')}}"><span>模板下载</span></a>
+            </label>
+        </li>
     </ul>
     <!-- /题库查看操作 -->
 
