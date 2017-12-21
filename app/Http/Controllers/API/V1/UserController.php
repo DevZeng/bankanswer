@@ -168,7 +168,7 @@ class UserController extends Controller
         ])->first();
         $staff = Staff::find($order->user_id);
         $payData = [
-            'out_trade_no' => $number,
+            'out_biz_no' => $number,
             'payee_type' => 'ALIPAY_LOGONID',        // 收款方账户类型(ALIPAY_LOGONID | ALIPAY_USERID)
             'payee_account' => $staff->account,   // 收款方账户
             'amount' => $order->cash,
