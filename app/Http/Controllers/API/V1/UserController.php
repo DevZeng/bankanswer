@@ -171,7 +171,7 @@ class UserController extends Controller
             'out_trade_no' => $number,
             'payee_type' => 'ALIPAY_LOGONID',        // 收款方账户类型(ALIPAY_LOGONID | ALIPAY_USERID)
             'payee_account' => $staff->account,   // 收款方账户
-            'amount' => $order->price,
+            'amount' => $order->cash,
         ];
         $data = \Yansongda\LaravelPay\Facades\Pay::driver('alipay')->gateway('transfer')->pay($payData);
         dd($data);
