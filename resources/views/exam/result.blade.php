@@ -22,14 +22,6 @@
     <!-- /公有导航 -->
 
     <!-- 考试设置操作 -->
-    <div class="staff-operation" style="padding-top: 10px; padding-bottom: 10px;">
-        <form id="examination-search">
-            <input type="text" class="input-control" name="start" placeholder="请输入开始时间，格式：2017-12-21">
-            <span>至</span>
-            <input type="text" class="input-control" name="end" placeholder="请输入结束时间，格式：2017-12-21">
-            <input type="submit" class="btn primary" value="查询"></input>
-        </form>
-    </div>
     <!-- /考试设置操作 -->
 
     <!-- 结果列表 -->
