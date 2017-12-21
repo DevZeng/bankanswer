@@ -98,7 +98,6 @@
 @if (session('status'))
 {{--    {{dd(session('status'))}}--}}
     <script type="text/javascript">
-        console.log({{session('status')}})
         alert("{{session('status')}}")
     </script>
 
