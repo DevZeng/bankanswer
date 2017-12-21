@@ -193,3 +193,12 @@ thead {
   overflow: hidden;
   white-space: nowrap;
 }
+.pagination {
+  text-align: right;
+  margin-top: 10px;
+  padding-right: 10px;
+}
+.pagination>li {
+  display: inline-block;
+  margin: 0 5px;
+}
