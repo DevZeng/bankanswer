@@ -94,6 +94,7 @@ class UserController extends Controller
             dd(Auth::user());
 //            return redirect()->to('index');
         }
+        dd(['dafas'=>'dafasf']);
         return redirect()->back()->with('status','用户名或密码错误！');
     }
     public function loginPage()
