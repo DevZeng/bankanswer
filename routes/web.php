@@ -24,6 +24,7 @@ Route::get('test',function (){
    dd($data);
 });
 Route::get('login','API\V1\UserController@loginPage')->name('login');
+Route::post('login','API\V1\UserController@login');
 Route::group(['middleware'=>'auth'],function (){
     Route::get('index','API\V1\UserController@index')->name('index');
     Route::get('admins','API\V1\UserController@listAdmin');
@@ -42,7 +43,6 @@ Route::group(['middleware'=>'auth'],function (){
     Route::post('add/packet','API\V1\WarehouseController@addRedPacket');
     Route::get('staffs','API\V1\UserController@getStaffs');
     Route::post('del/staffs','API\V1\UserController@delStaffs');
-    Route::post('login','API\V1\UserController@login');
     Route::post('warehouse','API\V1\WarehouseController@addWarehouse');
     Route::get('warehouses','API\V1\WarehouseController@getWarehouses');
     Route::post('del/warehouses','API\V1\WarehouseController@delWarehouses');
