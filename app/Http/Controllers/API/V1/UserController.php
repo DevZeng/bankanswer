@@ -123,7 +123,7 @@ class UserController extends Controller
         $username = Input::get('username');
         $password = Input::get('password');
         $staff = Staff::where('username','=',$username)->first();
-        if (!empty($staff)&&$staff->password = md5($password)){
+        if (!empty($staff)&&$staff->password == md5($password)){
             $token = createNoncestr();
             setUserToken($token,$staff->id);
             return response()->json([
