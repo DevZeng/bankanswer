@@ -20,7 +20,7 @@ class Cross
 //        $response->header('Access-Control-Allow-Origin', 'http://120.78.49.181');
         $response->header('Access-Control-Allow-Origin', 'http://119.23.202.220:8098');
 //        $response->header('Access-Control-Allow-Origin', 'http://119.23.202.220:8098');
-        $response->header('Access-Control-Allow-Headers', 'Origin, Content-Type,X-CSRF-Token, Cookie, Accept');
+        $response->header('Access-Control-Allow-Headers', 'Origin, Content-Type,x-xsrf-token, Cookie, Accept');
         $response->header('Access-Control-Allow-Methods', 'GET,POST,PATCH,PUT,OPTIONS,DELETE');
         $response->header('Access-Control-Allow-Credentials', 'true');
         return $response;
