@@ -38,7 +38,7 @@
     <div class="login-footer">&copy; Sennki 2017 All Rights Reserved</div>
 </div>
 @if (session('status'))
-{{--    {{dd(session('status'))}}--}}
+    {{dd(session('status'))}}
     <script type="text/javascript">
         console.log({{session('status')}})
         alert("{{session('status')}}")
