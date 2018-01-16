@@ -40,7 +40,7 @@ class UserController extends Controller
             $password = '123456';
         }
         $staff->username = Input::get('username');
-        $staff->password = bcrypt($password);
+        $staff->password = md5($password);
         $staff->name = Input::get('name');
         $staff->sex = Input::get('sex');
         $staff->mobile = Input::get('mobile');
@@ -64,7 +64,7 @@ class UserController extends Controller
                 $staff->name = $origin[1];
                 $staff->sex = ($origin[2]=='男')?1:2;
                 $staff->mobile = $origin[3];
-                $staff->password = bcrypt('123456');
+                $staff->password = md5('123456');
                 $staff->save();
             });
         });
@@ -128,13 +128,42 @@ class UserController extends Controller
             setUserToken($token,$staff->id);
             return response()->json([
                 'code'=>'200',
-                'data'=>$token
+                'data'=>$token,
+                'alipay'=>$staff->account
             ]);
         }
         return response()->json([
             'code'=>'400',
             'msg'=>'用户名或密码错误！'
         ]);
+    }
+    public function getStaffInfo()
+    {
+        $uid = getUserToken(Input::get('token'));
+        $staff = Staff::find($uid);
+        return response()->json([
+            'code'=>'200',
+            'data'=>[
+                'alipay'=>$staff->account
+            ]
+        ]);
+    }
+    public function setStaffInfo()
+    {
+        $password = Input::get('password');
+        $account = Input::get('alipay');
+        $uid = getUserToken(Input::get('token'));
+        $staff = Staff::find($uid);
+        if ($password){
+            $staff->password = md5($password);
+        }
+        if ($account){
+            $staff->account = $account;
+        }
+        $staff->save();
+        return response()->json([
+        'code'=>'200'
+    ]);
     }
     public function getMistakes()
     {

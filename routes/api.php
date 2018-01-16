@@ -26,5 +26,7 @@ Route::group(['middleware'=>'cross'],function (){
     Route::get('staffs','API\V1\UserController@staffList');
     Route::get('exams','API\V1\ExamController@getNowExams');
     Route::get('exam/{id}','API\V1\ExamController@getExam');
+    Route::get('staff/info','API\V1\UserController@getStaffInfo');
+    Route::post('staff/info','API\V1\UserController@setStaffInfo');
     Route::post('finish/exam/{id}','API\V1\ExamController@finishExam');
 });
