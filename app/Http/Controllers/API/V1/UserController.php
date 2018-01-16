@@ -91,7 +91,8 @@ class UserController extends Controller
         $username = Input::get('username');
         $password = Input::get('password');
         if (Auth::attempt(['username' => $username, 'password' => $password], true)) {
-            return redirect('index');
+            dd(Auth::user());
+//            return redirect()->to('index');
         }
         return redirect()->back()->with('status','用户名或密码错误！');
     }
