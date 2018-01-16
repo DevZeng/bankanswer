@@ -19,7 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware'=>'cross'],function (){
     Route::post('staff/login','API\V1\UserController@staffLogin');
     Route::options('staff/login',function (){
-        return 'SUCCESS';
+        return response()->json([
+            'code'=>'200'
+        ]);
     });
     Route::get('cash','API\V1\UserController@cash');
     Route::get('mistakes','API\V1\UserController@getMistakes');
