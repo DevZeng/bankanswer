@@ -23,8 +23,8 @@ Route::get('test',function (){
     $data = implode(',',$data);
    dd($data);
 });
-Route::get('login','API\V1\UserController@loginPage');
-Route::group(['middleware'=>'auth'],function (){
+Route::get('login','API\V1\UserController@loginPage')->name('login');
+Route::group(['middleware'=>['auth']],function (){
     Route::get('index','API\V1\UserController@index');
     Route::get('admins','API\V1\UserController@listAdmin');
     Route::get('add/staff','API\V1\UserController@addStaffPage');
