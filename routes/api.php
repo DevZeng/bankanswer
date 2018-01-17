@@ -72,7 +72,7 @@ Route::group(['middleware'=>'cross'],function (){
         ]);
     });
     Route::get('staff/info','API\V1\UserController@getStaffInfo');
-    Route::post('staff/info','API\V1\UserController@getStaffInfo');
+    Route::post('staff/info','API\V1\UserController@setStaffInfo');
     Route::options('staff/info',function (){
         return response()->json([
             'code'=>'200'
