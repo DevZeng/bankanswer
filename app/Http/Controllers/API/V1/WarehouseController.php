@@ -121,6 +121,9 @@ class WarehouseController extends Controller
         $mistake->record = $wrong;
         $mistake->save();
         $accuracy = $right/$count;
+        $staff = Staff::find($uid);
+        $staff->score +=$right;
+        $staff->save();
         $redPacket = RedPacket::where('warehouse_id','=',$warehouse_id)
         ->where('min','<',$accuracy)->where('max','>',$accuracy)->first();
         if ($redPacket){

@@ -84,4 +84,6 @@ Route::group(['middleware'=>'cross'],function (){
             'code'=>'200'
         ]);
     });
+
+    Route::any('check','API\V1\UserController@check');
 });

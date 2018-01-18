@@ -249,4 +249,17 @@ class UserController extends Controller
         $users = User::paginate(10);
         return view('user.admin',['users'=>$users]);
     }
+    public function check()
+    {
+        $uid = getUserToken(Input::get('token'));
+        if ($uid){
+            return response()->json([
+                'code'=>'200'
+            ]);
+        }
+        return response()->json([
+            'code'=>'401',
+            'msg'=>'无效的token！'
+        ]);
+    }
 }
