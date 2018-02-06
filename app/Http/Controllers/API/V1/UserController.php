@@ -82,6 +82,7 @@ class UserController extends Controller
             ]);
         }
         Staff::whereIn('id',$ids)->delete();
+        Order::whereIn('user_id',$ids)->delete();
         return response()->json([
             'code'=>'200'
         ]);
